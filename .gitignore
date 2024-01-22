@@ -1,0 +1,45 @@
+# Compiled Object files, Static and Dynamic libs (Shared Objects)
+*.o
+*.a
+*.so
+*.dll
+
+# Executables
+*.exe
+*.out
+
+# CMake build directory
+/build/*
+
+# CMake generated files
+/CMakeFiles/
+/CMakeScripts/
+/CMakeCache.txt
+/CMakeCache/
+
+# Visual Studio Code directory
+/.vscode/
+
+# macOS directory attributes
+.DS_Store
+
+# Compiled Python files
+__pycache__/
+
+# Temporary files
+*.swp
+*~
+
+# User-specific files
+.vscode/
+.idea/
+
+# Ignore cmake install files
+install_manifest.txt
+
+# Ignore macOS system files
+.AppleDouble
+.DS_Store
+
+# Any configs not needed
+.conf

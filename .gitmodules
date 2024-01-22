@@ -1,0 +1,15 @@
+[submodule "submodule/spdlog"]
+	path = submodule/spdlog
+	url = https://github.com/gabime/spdlog
+[submodule "submodule/SDL"]
+	path = submodule/SDL
+	url = https://github.com/libsdl-org/SDL
+[submodule "submodule/mimalloc"]
+	path = submodule/mimalloc
+	url = https://github.com/microsoft/mimalloc
+[submodule "submodule/cute_headers"]
+	path = submodule/cute_headers
+	url = https://github.com/RandyGaul/cute_headers
+[submodule "submodule/googletest"]
+	path = submodule/googletest
+	url = https://github.com/google/googletest
