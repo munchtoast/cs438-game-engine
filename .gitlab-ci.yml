@@ -13,9 +13,26 @@
 
 image: gcc
 
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+
+stages:
+  - precommit
+  - build
+  - test
+
 before_script:
  - apt-get update --yes
- - apt-get install --yes cmake
+ - apt-get install --yes cmake python3 pip python3.11-venv
+
+precommit:
+  stage: precommit
+  script:
+    - python3 -m venv .venv
+    - source .venv/bin/activate
+    - python3 -m pip install pre-commit
+    - pre-commit install
+    - pre-commit run --all-files
 
 build:
   stage: build
@@ -24,6 +41,7 @@ build:
   # before_script:
   #   - apt update && apt -y install make autoconf
   script:
+    - mkdir build
     - cd build
     - cmake ..
     - cmake --build .
@@ -32,6 +50,8 @@ build:
 test:
   stage: test
   script:
+    - mkdir build
     - cd build
+    - cmake ..
+    - cmake --build .
     - ctest
-    
