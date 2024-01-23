@@ -8,30 +8,21 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(GOOGLETEST_VERSION 1.10.0)
 
 # Include submodules
-add_subdirectory(submodule/SDL)
-add_subdirectory(submodule/googletest/googletest)
-add_subdirectory(submodule/mimalloc)
-add_subdirectory(submodule/spdlog)
+add_subdirectory(${CMAKE_SOURCE_DIR}/submodule/SDL)
+add_subdirectory(${CMAKE_SOURCE_DIR}/submodule/googletest/googletest)
+add_subdirectory(${CMAKE_SOURCE_DIR}/submodule/mimalloc)
+add_subdirectory(${CMAKE_SOURCE_DIR}/submodule/spdlog)
 
-# Add your source files
-file(GLOB_RECURSE SOURCES "src/*.cpp")
+# Add source files
+set(SOURCES ${CMAKE_SOURCE_DIR}/src/main.cpp ${CMAKE_SOURCE_DIR}/src/window.cpp)
+set(HEADERS ${CMAKE_SOURCE_DIR}/src/window.h)
 
-# Create a library from the common source files
-add_library(GameEngineLib ${SOURCES})
+add_executable(game-engine ${SOURCES} ${HEADERS})
 
-# Specify include directories for the library
-target_include_directories(GameEngineLib PUBLIC
-    ${CMAKE_CURRENT_SOURCE_DIR}/src
-    ${CMAKE_CURRENT_SOURCE_DIR}/submodule/SDL/include
-    ${CMAKE_CURRENT_SOURCE_DIR}/submodule/mimalloc/include
-    ${CMAKE_CURRENT_SOURCE_DIR}/submodule/spdlog/include
-    ${CMAKE_CURRENT_SOURCE_DIR}/submodule/googletest/googletest/include
-    ${CMAKE_CURRENT_SOURCE_DIR}/submodule/cute_headers  # Include the header-only library
-)
+target_link_libraries(game-engine PRIVATE SDL3::SDL3 mimalloc)
+target_link_libraries(game-engine PRIVATE spdlog)
 
-# Create the main executable using the library
-add_executable(main src/main.cpp)
-target_link_libraries(main PRIVATE GameEngineLib)
+target_include_directories(game-engine PRIVATE ${CMAKE_SOURCE_DIR}/submodule/cute_headers)
 
 # ---- Add Testing Support ----
 enable_testing()
