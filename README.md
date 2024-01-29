@@ -23,15 +23,19 @@ To build the project, follow these steps:
 2. Run the following commands:
 
 ```
-   bash
-   mkdir build
-   cd build
-   cmake ..
-   make
+mkdir build
+cd build
+cmake ..
+make
 ```
 ## Testing the Project
 
-To run tests, use the following command:
+To run tests, first build the project specifying the option for test:
+```
+cmake .. -D BUILD_TESTING=ON
+```
+
+Then apply the tests:
 ```
 ctest
 ```
@@ -40,7 +44,7 @@ ctest
 
 To run the project, execute the generated executable from the build directory:
 ```
-./main
+./game-engine
 ```
 
 ## Utilizing Pre-commit
