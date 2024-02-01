@@ -1,9 +1,10 @@
-#include "../src/GameWindow.h"
+#include "../../src/GameWindow.h"
 #include "gtest/gtest.h"
 
 class WindowTest : public ::testing::Test {
 protected:
-  GameWindow gameWindow;
+  GameWindow::GameWindow gameWindow{
+      "Game Engine", 640, 480, SDL_WINDOW_RESIZABLE, SDL_RENDERER_PRESENTVSYNC};
 };
 
 TEST_F(WindowTest, CheckGameWindowExists) {

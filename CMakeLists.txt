@@ -17,8 +17,21 @@ add_subdirectory(${CMAKE_SOURCE_DIR}/submodule/mimalloc)
 add_subdirectory(${CMAKE_SOURCE_DIR}/submodule/spdlog)
 
 # Add source files, include *.cpp and *.h
-set(SOURCES ${CMAKE_SOURCE_DIR}/src/Main.cpp ${CMAKE_SOURCE_DIR}/src/GameWindow.cpp)
-set(HEADERS ${CMAKE_SOURCE_DIR}/src/GameWindow.h)
+set(SOURCES 
+  ${CMAKE_SOURCE_DIR}/src/Util.cpp
+  ${CMAKE_SOURCE_DIR}/src/Main.cpp 
+  ${CMAKE_SOURCE_DIR}/src/GameWindow.cpp 
+  ${CMAKE_SOURCE_DIR}/src/GameObject.cpp 
+  ${CMAKE_SOURCE_DIR}/src/Tile.cpp
+)
+
+set(HEADERS 
+  ${CMAKE_SOURCE_DIR}/src/Util.h
+  ${CMAKE_SOURCE_DIR}/src/RectStruct.h
+  ${CMAKE_SOURCE_DIR}/src/GameWindow.h 
+  ${CMAKE_SOURCE_DIR}/src/GameObject.h 
+  ${CMAKE_SOURCE_DIR}/src/Tile.h
+)
 
 add_executable(game-engine ${SOURCES} ${HEADERS})
 
@@ -30,5 +43,8 @@ target_include_directories(game-engine PRIVATE ${CMAKE_SOURCE_DIR}/submodule/cut
 # ---- Add Testing Support ----
 if(BUILD_TESTING)
   enable_testing()
-  add_subdirectory(test)
+  add_subdirectory(test/GameObject_Test)
+  add_subdirectory(test/GameWindow_Test)
+  add_subdirectory(test/Tile_Test)
+  add_subdirectory(test/Util_Test)
 endif()
