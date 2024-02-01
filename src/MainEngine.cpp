@@ -8,8 +8,8 @@
  * @brief Initialize all objects and initializes core components such as
  * GameWindow, Tiles, and GameObjects
  *
- * @note Tile may be deprecated in the near future as everything is referenced
- * off GameObject alone
+ * @note We may want to let the designer be the one to decide the render order
+ * (via render layer)
  * @param objects - Struct of all GameObjects, Tiles, and the GameWindow
  * options. The GameObjects and Tiles refers to a memory pointer that references
  * all and not just one object

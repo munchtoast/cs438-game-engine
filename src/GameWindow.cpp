@@ -37,7 +37,7 @@ GameWindow::GameWindow(const char *title, const int w, const int h,
   }
 }
 
-GameWindow::~GameWindow() { cleanup(); }
+GameWindow::~GameWindow() { GameWindow::cleanup(); }
 
 SDL_Window *GameWindow::getWindow() { return window; }
 
@@ -49,8 +49,8 @@ void GameWindow::setRenderDrawColor(Uint8 r, Uint8 g, Uint8 b, Uint8 a) {
   SDL_SetRenderDrawColor(renderer, r, g, b, a);
 }
 
-void GameWindow::drawRect(GameObject::GameObject gameObject) {
-  SDL_RenderFillRect(renderer, gameObject.getRect());
+void GameWindow::drawRect(SDL_FRect *rect) {
+  SDL_RenderFillRect(renderer, rect);
 }
 
 void GameWindow::present() { SDL_RenderPresent(renderer); }
@@ -58,6 +58,5 @@ void GameWindow::present() { SDL_RenderPresent(renderer); }
 void GameWindow::cleanup() {
   SDL_DestroyWindow(window);
   SDL_DestroyRenderer(renderer);
-  SDL_Quit();
 }
 } // namespace GameWindow

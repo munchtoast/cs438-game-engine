@@ -21,7 +21,7 @@
 #define GAME_WINDOW_H
 
 namespace GameObject {
-class GameObject; // Forward declaration
+class GameObject;
 }
 
 #include <SDL.h>
@@ -38,7 +38,7 @@ public:
 
   void clearScreen();
   void setRenderDrawColor(Uint8 r, Uint8 g, Uint8 b, Uint8 a);
-  void drawRect(GameObject::GameObject gameObject);
+  void drawRect(SDL_FRect *rect);
   void present();
 
 private:

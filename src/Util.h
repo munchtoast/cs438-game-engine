@@ -12,6 +12,8 @@
  *
  * @version
  * - 1.0: Initial implementation (dexter@nekocake.cafe) (2024-02-01)
+ * - 1.1: Move checkIfNullPtr() to public access (dexter@nekocake.cafe)
+ * (2024-02-02)
  */
 
 #ifndef UTIL_H
@@ -22,12 +24,11 @@ class Util {
 public:
   static void checkIfMemAllocSuccess(void *ptr);
   static void checkIfMemFreeSuccess(void *ptr);
+  static bool checkIfNullPtr(void *ptr);
 
 private:
   Util();
   ~Util();
-
-  static bool checkIfNullPtr(void *ptr);
 };
 
 extern void checkIfMemAllocSuccess(void *ptr);

@@ -27,10 +27,11 @@ namespace GameObject {
 class GameObject {
 public:
   GameObject(float x, float y, float width, float height);
-  ~GameObject();
+  virtual ~GameObject();
 
   RectStruct::Rect *rectProperties;
   RectStruct::Rect *getRectProperties();
+  void setRectProperties(RectStruct::Rect *ptr);
 
   SDL_FRect *getRect();
   void setX(float x);

@@ -1,4 +1,5 @@
 #include "GameObject.h"
+#include "MemoryManagement.h"
 #include "RectStruct.h"
 #include "Util.h"
 #include <SDL.h>
@@ -15,9 +16,8 @@ namespace GameObject {
  */
 GameObject::GameObject(float x, float y, float width, float height) {
   rectProperties =
-      static_cast<RectStruct::Rect *>(mi_malloc(sizeof(RectStruct::Rect)));
-
-  Util::checkIfMemAllocSuccess(rectProperties);
+      (RectStruct::Rect *)MemoryManagement::MemoryManagement::allocate(
+          sizeof(RectStruct::Rect));
 
   GameObject::setX(x);
   GameObject::setY(y);
@@ -25,7 +25,7 @@ GameObject::GameObject(float x, float y, float width, float height) {
   GameObject::setH(height);
 }
 
-GameObject::~GameObject() { cleanup(); }
+GameObject::~GameObject() { GameObject::cleanup(); }
 
 SDL_FRect *GameObject::getRect() { return &rect; }
 
@@ -46,6 +46,10 @@ RectStruct::Rect *GameObject::getRectProperties() {
   return GameObject::rectProperties;
 }
 
+void GameObject::setRectProperties(RectStruct::Rect *ptr) {
+  rectProperties = ptr;
+}
+
 /**
  * @brief Updates internal position to the render
  */
@@ -57,9 +61,9 @@ void GameObject::update() {
 }
 
 void GameObject::cleanup() {
-  if (getRectProperties() != nullptr) {
-    mi_free(getRectProperties());
-    rectProperties = nullptr;
-  }
+  GameObject::setRectProperties(
+      (RectStruct::Rect *)MemoryManagement::MemoryManagement::deallocate(
+          GameObject::getRectProperties()));
+  Util::Util::checkIfMemFreeSuccess(GameObject::getRectProperties());
 }
 } // namespace GameObject
