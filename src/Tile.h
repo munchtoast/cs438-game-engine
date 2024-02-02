@@ -30,9 +30,10 @@ namespace Tile {
 class Tile : public GameObject::GameObject {
 public:
   Tile(float x, float y, float width, float height);
-  ~Tile();
+  virtual ~Tile();
 
   RectStruct::Color *getColor();
+  void setColor(RectStruct::Color *ptr);
   void setColorChoice(Uint8 r, Uint8 g, Uint8 b, Uint8 a);
 
 private:

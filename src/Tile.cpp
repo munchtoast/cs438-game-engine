@@ -1,5 +1,6 @@
 #include "Tile.h"
 #include "GameObject.h"
+#include "MemoryManagement.h"
 #include "RectStruct.h"
 #include "Util.h"
 #include <mimalloc.h>
@@ -17,10 +18,8 @@ namespace Tile {
  */
 Tile::Tile(float x, float y, float width, float height)
     : GameObject(x, y, width, height) {
-  color = (RectStruct::Color *)mi_malloc(sizeof(RectStruct::Color));
-  color = new RectStruct::Color;
-
-  Util::checkIfMemAllocSuccess(color);
+  color = (RectStruct::Color *)MemoryManagement::MemoryManagement::allocate(
+      sizeof(RectStruct::Color));
 
   Tile::setColorChoice(255, 255, 255, 255);
 }
@@ -28,6 +27,8 @@ Tile::Tile(float x, float y, float width, float height)
 Tile::~Tile() { Tile::cleanup(); }
 
 RectStruct::Color *Tile::getColor() { return Tile::color; }
+
+void Tile::setColor(RectStruct::Color *ptr) { color = ptr; }
 
 void Tile::setColorChoice(Uint8 r, Uint8 g, Uint8 b, Uint8 a) {
   Tile::color->r = r;
@@ -37,9 +38,9 @@ void Tile::setColorChoice(Uint8 r, Uint8 g, Uint8 b, Uint8 a) {
 }
 
 void Tile::cleanup() {
-  if (getColor() != nullptr) {
-    mi_free(getColor());
-    color = nullptr;
-  }
+  Tile::setColor(
+      (RectStruct::Color *)MemoryManagement::MemoryManagement::deallocate(
+          getColor()));
+  Util::Util::checkIfMemFreeSuccess(Tile::getColor());
 }
 } // namespace Tile

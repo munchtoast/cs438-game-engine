@@ -4,7 +4,7 @@
 
 namespace Util {
 /**
- * @brief Checks if Memory Allocation is Successful. If the Memory Allocation is
+ * @brief Checks if Memory Allocation is successful. If the Memory Allocation is
  * not successful then the program should throw an error. This prevents the
  * program from accessing unsafe memory addresses.
  *
@@ -18,7 +18,7 @@ void Util::checkIfMemAllocSuccess(void *ptr) {
 }
 
 /**
- * @brief Checks if Memory Deallocation is Successful. If the Memory
+ * @brief Checks if Memory Deallocation is successful. If the Memory
  * Deallocation is not successful then the program should throw an error. This
  * prevents memory leaks that otherwise would continue.
  *
