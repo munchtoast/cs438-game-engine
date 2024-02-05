@@ -42,6 +42,13 @@ void GameObject::setH(float height) {
   GameObject::getRectProperties()->size.height = height;
 }
 
+float GameObject::getX() { return GameObject::getRectProperties()->position.x; }
+float GameObject::getY() { return GameObject::getRectProperties()->position.y; }
+float GameObject::getW() { return GameObject::getRectProperties()->size.width; }
+float GameObject::getH() {
+  return GameObject::getRectProperties()->size.height;
+}
+
 RectStruct::Rect *GameObject::getRectProperties() {
   return GameObject::rectProperties;
 }

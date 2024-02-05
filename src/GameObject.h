@@ -38,6 +38,12 @@ public:
   void setY(float y);
   void setW(float width);
   void setH(float height);
+
+  float getX();
+  float getY();
+  float getW();
+  float getH();
+
   void update();
 
 private:
