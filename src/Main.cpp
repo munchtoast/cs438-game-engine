@@ -1,5 +1,6 @@
 #include "GameObject.h"
 #include "GameWindow.h"
+#include "Map.h"
 #include "MemoryManagement.h"
 #include "Tile.h"
 #include <SDL.h>
@@ -14,19 +15,29 @@ int main() {
                                     SDL_WINDOW_RESIZABLE,
                                     SDL_RENDERER_PRESENTVSYNC);
 
-  void *screenMemory = MemoryManagement::MemoryManagement::allocate(
-      sizeof(GameObject::GameObject));
-  GameObject::GameObject *screen = new (screenMemory)
-      GameObject::GameObject(0, 0, windowWidth, windowHeight);
+  Map::Map<GameObject::GameObject> *gameObjectMap =
+      new (MemoryManagement::MemoryManagement::allocate<
+           Map::Map<GameObject::GameObject>>(
+          sizeof(Map::Map<GameObject::GameObject>)))
+          Map::Map<GameObject::GameObject>();
 
-  void *cameraMemory = MemoryManagement::MemoryManagement::allocate(
-      sizeof(GameObject::GameObject));
-  GameObject::GameObject *camera = new (cameraMemory)
-      GameObject::GameObject(0, 0, windowWidth, windowHeight);
+  GameObject::GameObject *screen =
+      new (MemoryManagement::MemoryManagement::allocate<GameObject::GameObject>(
+          sizeof(GameObject::GameObject)))
+          GameObject::GameObject(0, 0, windowWidth, windowHeight);
 
-  void *tileMemory =
-      MemoryManagement::MemoryManagement::allocate(sizeof(Tile::Tile));
-  Tile::Tile *tile = new (tileMemory) Tile::Tile(50, 50, 50, 50);
+  GameObject::GameObject *camera =
+      new (MemoryManagement::MemoryManagement::allocate<GameObject::GameObject>(
+          sizeof(GameObject::GameObject)))
+          GameObject::GameObject(0, 0, windowWidth, windowHeight);
+
+  Tile::Tile *tile =
+      new (MemoryManagement::MemoryManagement::allocate<Tile::Tile>(
+          sizeof(Tile::Tile))) Tile::Tile(50, 50, 50, 50);
+
+  gameObjectMap->add(screen);
+  gameObjectMap->add(camera);
+  gameObjectMap->add(tile);
 
   tile->setColorChoice(255, 0, 0, 255);
 
@@ -38,16 +49,16 @@ int main() {
       if (e.type == SDL_EVENT_KEY_DOWN) {
         switch (e.key.keysym.sym) {
         case SDLK_LEFT:
-          camera->setX(camera->getX() - 1);
+          camera->setX(camera->getX() - 5);
           break;
         case SDLK_RIGHT:
-          camera->setX(camera->getX() + 1);
+          camera->setX(camera->getX() + 5);
           break;
         case SDLK_UP:
-          camera->setY(camera->getY() - 1);
+          camera->setY(camera->getY() - 5);
           break;
         case SDLK_DOWN:
-          camera->setY(camera->getY() + 1);
+          camera->setY(camera->getY() + 5);
           break;
         }
       }
@@ -87,12 +98,9 @@ int main() {
   }
   SDL_Quit();
 
-  screen->~GameObject();
-  tile->~Tile();
-  camera->~GameObject();
+  gameObjectMap = static_cast<Map::Map<GameObject::GameObject> *>(
+      MemoryManagement::MemoryManagement::deallocate<
+          Map::Map<GameObject::GameObject>>(gameObjectMap));
 
-  screenMemory = MemoryManagement::MemoryManagement::deallocate(screenMemory);
-  tileMemory = MemoryManagement::MemoryManagement::deallocate(tileMemory);
-  cameraMemory = MemoryManagement::MemoryManagement::deallocate(cameraMemory);
   return 0;
 }

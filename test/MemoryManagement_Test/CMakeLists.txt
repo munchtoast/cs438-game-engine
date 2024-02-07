@@ -13,7 +13,6 @@ set(TEST_SOURCES "Test_MemoryManagement.cpp")
 
 # Add source targets
 set(SOURCE_TARGET 
-  ${CMAKE_SOURCE_DIR}/src/MemoryManagement.cpp
   ${CMAKE_SOURCE_DIR}/src/Util.cpp
 )
 

@@ -15,18 +15,73 @@
  *
  * @version
  * - 1.0: Initial implementation (dexter@nekocake.cafe) (2024-02-02)
+ * - 1.1: Convert source code to templates (dexter@nekocake.cafe) (2024-02-07)
  */
 
 #ifndef MEMORY_MANAGEMENT_H
 #define MEMORY_MANAGEMENT_H
 
+#include "Util.h"
+#include "mimalloc.h"
 #include <cstddef>
 
 namespace MemoryManagement {
 class MemoryManagement {
 public:
-  static void *allocate(std::size_t size);
-  static void *deallocate(void *ptr);
+  /**
+   * @brief Allocates memory of certain size and returns the pointer to the
+   * memory block
+   *
+   * @param size - Size of the block to allocate from memory
+   */
+  template <typename T> static T *allocate(std::size_t size) {
+    T *ptr = static_cast<T *>(mi_malloc(size));
+    Util::Util::checkIfMemAllocSuccess(ptr);
+    return ptr;
+  }
+
+  /**
+   * @brief Deallocates memory given a pointer and returns a nullptr to assign
+   * back
+   *
+   * @param ptr - Address of the memory block to be freed
+   */
+  template <typename T> static T *deallocate(T *ptr) {
+    if (Util::Util::checkIfNullPtr(ptr))
+      throw std::runtime_error("Freeing unsafe memory!");
+
+    // Call destructors for each object in the memory block
+    destructObjects<T>(ptr);
+
+    mi_free(ptr);
+    return nullptr;
+  }
+
+  /**
+   * @brief Reallocates memory given a pointer and size to increase by. Returns
+   * new pointer
+   *
+   * @note The old pointer is freed
+   *
+   * @param ptr - Address of the old memory block
+   * @param size - Amount to increase current memory by
+   */
+  template <typename T> static T *reallocate(T *ptr, std::size_t size) {
+    if (Util::Util::checkIfNullPtr(ptr))
+      throw std::runtime_error("Reallocating unsafe memory!");
+
+    T *newPtr = static_cast<T *>(mi_realloc(ptr, size));
+    Util::Util::checkIfMemAllocSuccess(newPtr);
+
+    return newPtr;
+  }
+
+  template <typename T> static void destructObjects(T *ptr) {
+    T *object = reinterpret_cast<T *>(ptr);
+    if (object != nullptr) {
+      object->~T();
+    }
+  }
 
   /**
    * @brief DeepCopy allows for an object supplied via constructor to be copied
@@ -56,8 +111,6 @@ private:
   ~MemoryManagement();
 };
 
-extern void *allocate(std::size_t size);
-extern void *deallocate(void *ptr);
 } // namespace MemoryManagement
 
 #endif

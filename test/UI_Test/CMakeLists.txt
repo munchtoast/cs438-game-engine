@@ -16,7 +16,6 @@ set(SOURCE_TARGET
   ${CMAKE_SOURCE_DIR}/src/UI.cpp
   ${CMAKE_SOURCE_DIR}/src/Util.cpp
   ${CMAKE_SOURCE_DIR}/src/GameObject.cpp
-  ${CMAKE_SOURCE_DIR}/src/MemoryManagement.cpp
 )
 
 target_sources(test_camera PRIVATE ${TEST_SOURCES} ${SOURCE_TARGET})
