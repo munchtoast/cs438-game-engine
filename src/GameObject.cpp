@@ -27,7 +27,7 @@ GameObject::GameObject(float x, float y, float width, float height) {
 
 GameObject::~GameObject() { GameObject::cleanup(); }
 
-SDL_FRect *GameObject::getRect() { return &rect; }
+SDL_Rect *GameObject::getRect() { return &rect; }
 
 void GameObject::setX(float x) {
   GameObject::getRectProperties()->position.x = x;
@@ -40,6 +40,13 @@ void GameObject::setW(float width) {
 }
 void GameObject::setH(float height) {
   GameObject::getRectProperties()->size.height = height;
+}
+
+float GameObject::getX() { return GameObject::getRectProperties()->position.x; }
+float GameObject::getY() { return GameObject::getRectProperties()->position.y; }
+float GameObject::getW() { return GameObject::getRectProperties()->size.width; }
+float GameObject::getH() {
+  return GameObject::getRectProperties()->size.height;
 }
 
 RectStruct::Rect *GameObject::getRectProperties() {
