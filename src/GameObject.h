@@ -33,7 +33,7 @@ public:
   RectStruct::Rect *getRectProperties();
   void setRectProperties(RectStruct::Rect *ptr);
 
-  SDL_FRect *getRect();
+  SDL_Rect *getRect();
   void setX(float x);
   void setY(float y);
   void setW(float width);
@@ -47,7 +47,7 @@ public:
   void update();
 
 private:
-  SDL_FRect rect;
+  SDL_Rect rect;
 
   void cleanup();
 };

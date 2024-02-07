@@ -24,7 +24,7 @@ set(SOURCES
   ${CMAKE_SOURCE_DIR}/src/GameWindow.cpp 
   ${CMAKE_SOURCE_DIR}/src/GameObject.cpp 
   ${CMAKE_SOURCE_DIR}/src/Tile.cpp
-  ${CMAKE_SOURCE_DIR}/src/Camera.cpp
+  ${CMAKE_SOURCE_DIR}/src/UI.cpp
 )
 
 set(HEADERS 
@@ -34,7 +34,7 @@ set(HEADERS
   ${CMAKE_SOURCE_DIR}/src/GameWindow.h 
   ${CMAKE_SOURCE_DIR}/src/GameObject.h 
   ${CMAKE_SOURCE_DIR}/src/Tile.h
-  ${CMAKE_SOURCE_DIR}/src/Camera.h
+  ${CMAKE_SOURCE_DIR}/src/UI.h
 )
 
 add_executable(game-engine ${SOURCES} ${HEADERS})
@@ -52,5 +52,5 @@ if(BUILD_TESTING)
   add_subdirectory(test/Tile_Test)
   add_subdirectory(test/Util_Test)
   add_subdirectory(test/MemoryManagement_Test)
-  add_subdirectory(test/Camera_Test)
+  add_subdirectory(test/UI_Test)
 endif()
