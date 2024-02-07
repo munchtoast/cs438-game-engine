@@ -18,8 +18,7 @@ variables:
 
 stages:
   - precommit
-  - build
-  - test
+  - buildtest
 
 before_script:
  - apt-get update --yes
@@ -35,7 +34,7 @@ precommit:
     - pre-commit run --all-files
 
 build:
-  stage: build
+  stage: buildtest
   # instead of calling g++ directly you can also use some build toolkit like make
   # install the necessary build tools when needed
   # before_script:
@@ -43,15 +42,6 @@ build:
   script:
     - mkdir build
     - cd build
-    - cmake ..
-    - cmake --build .
-
-# run tests using the binary built before
-test:
-  stage: test
-  script:
-    - mkdir build
-    - cd build
-    - cmake ..
+    - cmake .. -D BUILD_TESTING=ON
     - cmake --build .
     - ctest
