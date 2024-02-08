@@ -24,6 +24,7 @@ class Util {
 public:
   static void checkIfMemAllocSuccess(void *ptr);
   static void checkIfMemFreeSuccess(void *ptr);
+  static void checkIfMemReallocSuccess(void *ptr, void *nptr);
   static bool checkIfNullPtr(void *ptr);
 
 private:
@@ -33,6 +34,7 @@ private:
 
 extern void checkIfMemAllocSuccess(void *ptr);
 extern void checkIfMemFreeSuccess(void *ptr);
+extern void checkIfMemReallocSuccess(void *ptr, void *nptr);
 } // namespace Util
 
 #endif
