@@ -13,3 +13,7 @@
 [submodule "submodule/googletest"]
 	path = submodule/googletest
 	url = https://github.com/google/googletest
+[submodule "vagrant"]
+	path = vagrant
+	url = http://gitlab.nekocake.cafe/munchtoast/vagrant.git
+	branch = game-engine-cpp-box
