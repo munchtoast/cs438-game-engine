@@ -5,21 +5,24 @@
 
 class MemoryManagementTest : public ::testing::Test {
 protected:
-  int *ptr = (int *)MemoryManagement::MemoryManagement::allocate(sizeof(int));
+  int *ptr = static_cast<int *>(
+      MemoryManagement::MemoryManagement::allocate<int>(sizeof(int)));
 };
 
 TEST_F(MemoryManagementTest, CheckIfMemAllocSuccess) {
   ASSERT_TRUE(!Util::Util::checkIfNullPtr(ptr));
-  MemoryManagement::MemoryManagement::deallocate(ptr);
+  MemoryManagement::MemoryManagement::deallocate<int>(ptr);
 }
 
 TEST_F(MemoryManagementTest, checkIfMemFreeSuccess) {
-  ptr = (int *)MemoryManagement::MemoryManagement::deallocate(ptr);
+  ptr = static_cast<int *>(
+      MemoryManagement::MemoryManagement::deallocate<int>(ptr));
   ASSERT_TRUE(Util::Util::checkIfNullPtr(ptr));
 }
 
 TEST_F(MemoryManagementTest, failDoubleFree) {
-  ptr = (int *)MemoryManagement::MemoryManagement::deallocate(ptr);
-  ASSERT_THROW(MemoryManagement::MemoryManagement::deallocate(ptr),
+  ptr = static_cast<int *>(
+      MemoryManagement::MemoryManagement::deallocate<int>(ptr));
+  ASSERT_THROW(MemoryManagement::MemoryManagement::deallocate<int>(ptr),
                std::runtime_error);
 }

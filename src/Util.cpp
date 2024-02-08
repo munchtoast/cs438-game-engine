@@ -33,9 +33,20 @@ void Util::checkIfMemFreeSuccess(void *ptr) {
   }
 }
 
+void Util::checkIfMemReallocSuccess(void *ptr, void *nptr) {
+  if (!Util::checkIfNullPtr(ptr) && !Util::checkIfNullPtr(nptr)) {
+    spdlog::error("Unable to reallocate resources");
+    throw std::runtime_error("Memory reallocation failed.");
+  }
+}
+
 bool Util::checkIfNullPtr(void *ptr) { return (ptr == nullptr); }
 
 void checkIfMemAllocSuccess(void *ptr) { Util::checkIfMemAllocSuccess(ptr); }
 
 void checkIfMemFreeSuccess(void *ptr) { Util::checkIfMemFreeSuccess(ptr); }
+
+void checkIfMemReallocSuccess(void *ptr, void *nptr) {
+  Util::checkIfMemReallocSuccess(ptr, nptr);
+}
 } // namespace Util

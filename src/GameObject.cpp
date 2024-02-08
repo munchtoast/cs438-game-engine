@@ -15,9 +15,9 @@ namespace GameObject {
  * @param h - Size of the GameObject's height
  */
 GameObject::GameObject(float x, float y, float width, float height) {
-  rectProperties =
-      (RectStruct::Rect *)MemoryManagement::MemoryManagement::allocate(
-          sizeof(RectStruct::Rect));
+  rectProperties = static_cast<RectStruct::Rect *>(
+      MemoryManagement::MemoryManagement::allocate<RectStruct::Rect>(
+          sizeof(RectStruct::Rect)));
 
   GameObject::setX(x);
   GameObject::setY(y);
@@ -68,9 +68,9 @@ void GameObject::update() {
 }
 
 void GameObject::cleanup() {
-  GameObject::setRectProperties(
-      (RectStruct::Rect *)MemoryManagement::MemoryManagement::deallocate(
-          GameObject::getRectProperties()));
+  GameObject::setRectProperties(static_cast<RectStruct::Rect *>(
+      MemoryManagement::MemoryManagement::deallocate(
+          GameObject::getRectProperties())));
   Util::Util::checkIfMemFreeSuccess(GameObject::getRectProperties());
 }
 } // namespace GameObject

@@ -19,7 +19,6 @@ add_subdirectory(${CMAKE_SOURCE_DIR}/submodule/spdlog)
 # Add source files, include *.cpp and *.h
 set(SOURCES 
   ${CMAKE_SOURCE_DIR}/src/Util.cpp
-  ${CMAKE_SOURCE_DIR}/src/MemoryManagement.cpp
   ${CMAKE_SOURCE_DIR}/src/Main.cpp 
   ${CMAKE_SOURCE_DIR}/src/GameWindow.cpp 
   ${CMAKE_SOURCE_DIR}/src/GameObject.cpp 
@@ -35,6 +34,7 @@ set(HEADERS
   ${CMAKE_SOURCE_DIR}/src/GameObject.h 
   ${CMAKE_SOURCE_DIR}/src/Tile.h
   ${CMAKE_SOURCE_DIR}/src/UI.h
+  ${CMAKE_SOURCE_DIR}/src/Map.h
 )
 
 add_executable(game-engine ${SOURCES} ${HEADERS})
@@ -52,5 +52,6 @@ if(BUILD_TESTING)
   add_subdirectory(test/Tile_Test)
   add_subdirectory(test/Util_Test)
   add_subdirectory(test/MemoryManagement_Test)
+  add_subdirectory(test/Map_Test)
   add_subdirectory(test/UI_Test)
 endif()
