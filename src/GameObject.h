@@ -15,11 +15,14 @@
  *
  * @version
  * - 1.0: Initial implementation (dexter@nekocake.cafe) (2024-02-01)
+ * - 1.1: Add sub game objects for allowing hierarchical dependency
+ * (dexter@nekocake.cafe) (2024-02-09)
  */
 
 #ifndef GAMEOBJECT_H
 #define GAMEOBJECT_H
 
+#include "Map.h"
 #include "RectStruct.h"
 #include <SDL.h>
 
@@ -32,6 +35,9 @@ public:
   RectStruct::Rect *rectProperties;
   RectStruct::Rect *getRectProperties();
   void setRectProperties(RectStruct::Rect *ptr);
+
+  Map::Map<GameObject> *getSubGameObjects();
+  void addSubGameObject(GameObject *subGameObject);
 
   SDL_Rect *getRect();
   void setX(float x);
@@ -46,7 +52,11 @@ public:
 
   void update();
 
+protected:
+  void setSubGameObjects(Map::Map<GameObject> *subGameObjects);
+
 private:
+  Map::Map<GameObject> *subGameObjects;
   SDL_Rect rect;
 
   void cleanup();

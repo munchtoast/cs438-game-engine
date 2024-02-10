@@ -40,7 +40,8 @@ void Tile::setColorChoice(Uint8 r, Uint8 g, Uint8 b, Uint8 a) {
 
 void Tile::cleanup() {
   Tile::setColor(static_cast<RectStruct::Color *>(
-      MemoryManagement::MemoryManagement::deallocate(getColor())));
+      MemoryManagement::MemoryManagement::deallocate<RectStruct::Color>(
+          getColor())));
   Util::Util::checkIfMemFreeSuccess(Tile::getColor());
 }
 } // namespace Tile
