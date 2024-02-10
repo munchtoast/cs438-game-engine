@@ -5,16 +5,15 @@
  *
  * @version
  * - 1.0: Initial implementation (dexter@nekocake.cafe) (2024-02-07)
+ * - 1.1: Remove includes that cause circular dependency (dexter@nekocake.cafe)
+ * (2024-02-09)
  */
 
 #ifndef TILEMAP_H
 #define TILEMAP_H
 
-#include "GameObject.h"
 #include "MemoryManagement.h"
-#include "Tile.h"
 #include "Util.h"
-#include <SDL.h>
 #include <spdlog/spdlog.h>
 
 namespace Map {
@@ -28,7 +27,6 @@ public:
 
   void add(T *t) {
     if (getSize() == getCapacity()) {
-      spdlog::warn("Resize map can result in mem leaks.");
       setCapacity(getCapacity() == 0 ? 1 : getCapacity() * 2);
       mem = static_cast<T **>(MemoryManagement::MemoryManagement::reallocate(
           mem, getCapacity() * sizeof(T)));

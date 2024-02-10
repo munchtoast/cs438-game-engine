@@ -1,3 +1,4 @@
+#include "../../src/GameObject.h"
 #include "../../src/Map.h"
 #include "../../src/MemoryManagement.h"
 #include "../../src/Util.h"

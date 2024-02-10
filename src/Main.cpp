@@ -35,6 +35,12 @@ int main() {
       new (MemoryManagement::MemoryManagement::allocate<Tile::Tile>(
           sizeof(Tile::Tile))) Tile::Tile(50, 50, 50, 50);
 
+  Tile::Tile *hitBox =
+      new (MemoryManagement::MemoryManagement::allocate<Tile::Tile>(
+          sizeof(Tile::Tile))) Tile::Tile(50, 50, 50, 50);
+
+  tile->addSubGameObject(hitBox);
+
   gameObjectMap->add(screen);
   gameObjectMap->add(camera);
   gameObjectMap->add(tile);
