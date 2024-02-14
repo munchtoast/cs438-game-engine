@@ -1,5 +1,7 @@
 # test/CMakeLists.txt
 
+include_directories(include)
+
 # Add a target for the test runner
 add_executable(test_util Test_Util.cpp)
 

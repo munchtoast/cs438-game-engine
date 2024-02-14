@@ -1,5 +1,5 @@
-#include "../../src/UI.h"
-#include "../../src/Util.h"
+#include "UI.h"
+#include "Util.h"
 #include "gtest/gtest.h"
 
 class UITest : public ::testing::Test {

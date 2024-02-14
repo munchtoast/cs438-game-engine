@@ -26,18 +26,9 @@ set(SOURCES
   ${CMAKE_SOURCE_DIR}/src/UI.cpp
 )
 
-set(HEADERS 
-  ${CMAKE_SOURCE_DIR}/src/Util.h
-  ${CMAKE_SOURCE_DIR}/src/MemoryManagement.h
-  ${CMAKE_SOURCE_DIR}/src/RectStruct.h
-  ${CMAKE_SOURCE_DIR}/src/GameWindow.h 
-  ${CMAKE_SOURCE_DIR}/src/GameObject.h 
-  ${CMAKE_SOURCE_DIR}/src/Tile.h
-  ${CMAKE_SOURCE_DIR}/src/UI.h
-  ${CMAKE_SOURCE_DIR}/src/Map.h
-)
+include_directories(include)
 
-add_executable(game-engine ${SOURCES} ${HEADERS})
+add_executable(game-engine ${SOURCES})
 
 target_link_libraries(game-engine PRIVATE SDL3::SDL3 mimalloc)
 target_link_libraries(game-engine PRIVATE spdlog)
