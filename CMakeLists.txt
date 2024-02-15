@@ -24,6 +24,8 @@ set(SOURCES
   ${CMAKE_SOURCE_DIR}/src/GameObject.cpp 
   ${CMAKE_SOURCE_DIR}/src/Tile.cpp
   ${CMAKE_SOURCE_DIR}/src/UI.cpp
+  ${CMAKE_SOURCE_DIR}/src/Handler.cpp
+  ${CMAKE_SOURCE_DIR}/src/EventHandler.cpp
 )
 
 include_directories(include)
@@ -45,4 +47,6 @@ if(BUILD_TESTING)
   add_subdirectory(test/MemoryManagement_Test)
   add_subdirectory(test/Map_Test)
   add_subdirectory(test/UI_Test)
+  add_subdirectory(test/Handler_Test)
+  add_subdirectory(test/EventHandler_Test)
 endif()

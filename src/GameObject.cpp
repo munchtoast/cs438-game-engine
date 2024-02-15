@@ -5,6 +5,7 @@
 #include "Util.h"
 #include <SDL.h>
 #include <mimalloc.h>
+#include <spdlog/spdlog.h>
 
 namespace GameObject {
 /**
@@ -67,6 +68,8 @@ Map::Map<GameObject> *GameObject::getSubGameObjects() { return subGameObjects; }
 void GameObject::addSubGameObject(GameObject *subGameObject) {
   getSubGameObjects()->add(subGameObject);
 }
+
+void handleEvent() { spdlog::info("GameObject handled an event"); }
 
 /**
  * @brief Updates internal position to the render
