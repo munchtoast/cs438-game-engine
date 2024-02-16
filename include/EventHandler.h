@@ -16,21 +16,43 @@
 #include "Map.h"
 
 namespace EventHandler {
-class EventHandler {
+template <typename T> class EventHandler {
 public:
-  EventHandler();
-  virtual ~EventHandler();
+  EventHandler() {
+    setHandlers(new (MemoryManagement::MemoryManagement::allocate<
+                     Map::Map<Handler::Handler<T>>>(sizeof(
+        Map::Map<Handler::Handler<T>>))) Map::Map<Handler::Handler<T>>());
+  }
 
-  void addHandler(Handler::Handler *handler);
-  void handleEvent(int actionCode);
-  Map::Map<Handler::Handler> *getHandlers();
+  virtual ~EventHandler() { cleanup(); }
+
+  void addHandler(Handler::Handler<T> *handler) { getHandlers()->add(handler); }
+
+  void handleEvent(int actionCode) {
+    Handler::EventCallBack c;
+    for (size_t i = 0; i < getHandlers()->getSize(); i++) {
+      if (getHandlers()->getMap()[i]->getActionCode() == actionCode) {
+        c = *getHandlers()->getMap()[i]->getEventCallBack();
+        c();
+      } else
+        spdlog::warn("Action code does not have a valid handler");
+    }
+  }
+
+  Map::Map<Handler::Handler<T>> *getHandlers() { return handlers; }
 
 private:
-  Map::Map<Handler::Handler> *handlers;
+  Map::Map<Handler::Handler<T>> *handlers;
 
-  void setHandlers(Map::Map<Handler::Handler> *handler);
+  void setHandlers(Map::Map<Handler::Handler<T>> *nhandlers) {
+    handlers = nhandlers;
+  }
 
-  void cleanup();
+  void cleanup() {
+    setHandlers(static_cast<Map::Map<Handler::Handler<T>> *>(
+        MemoryManagement::MemoryManagement::deallocate<
+            Map::Map<Handler::Handler<T>>>(getHandlers())));
+  }
 };
 } // namespace EventHandler
 

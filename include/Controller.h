@@ -20,7 +20,7 @@
 
 namespace Controller {
 typedef struct {
-  int *key;
+  Map::Map<int> *keys;
   int actionCode;
 } GameAction;
 
@@ -29,19 +29,21 @@ public:
   Controller();
   ~Controller();
 
-  void createGameAction(int key, int actionCode);
-  void setEventHandler(EventHandler::EventHandler *neventHandler)
+  void createGameAction(Map::Map<int> *keys, int actionCode);
+  void setEventHandler(
+      EventHandler::EventHandler<GameObject::GameObject> *neventHandler);
+  EventHandler::EventHandler<GameObject::GameObject> *getEventHandler();
 
-      void update();
+  void update(SDL_Event &e);
 
 private:
   Map::Map<GameAction> *gameActions;
-  EventHandler::EventHandler *eventHandler;
+  EventHandler::EventHandler<GameObject::GameObject> *eventHandler;
 
   void addGameAction(GameAction *gameAction);
   Map::Map<GameAction> *getGameActions();
-  GameAction *getApplicableGameAction(int key);
-  EventHandler::EventHandler *getEventHandler();
+  GameAction *getApplicableGameAction(Map::Map<int> *ckeys);
+  bool compKeys(Map::Map<int> *keys, Map::Map<int> *ckeys);
   void cleanup();
 };
 } // namespace Controller

@@ -45,13 +45,15 @@ public:
    * back
    *
    * @param ptr - Address of the memory block to be freed
+   * @param cc - Complete Cleanup, calls destructor
    */
-  template <typename T> static T *deallocate(T *ptr) {
+  template <typename T> static T *deallocate(T *ptr, bool cc = true) {
     if (Util::Util::checkIfNullPtr(ptr))
       throw std::runtime_error("Freeing unsafe memory!");
 
     // Call destructors for each object in the memory block
-    destructObjects<T>(ptr);
+    if (cc)
+      destructObjects<T>(ptr);
 
     mi_free(ptr);
     return nullptr;

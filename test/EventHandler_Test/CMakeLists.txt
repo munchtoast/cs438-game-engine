@@ -15,8 +15,7 @@ set(TEST_SOURCES "Test_EventHandler.cpp")
 
 # Add source targets
 set(SOURCE_TARGET 
-  ${CMAKE_SOURCE_DIR}/src/EventHandler.cpp
-  ${CMAKE_SOURCE_DIR}/src/Handler.cpp
+  ${CMAKE_SOURCE_DIR}/src/GameObject.cpp
   ${CMAKE_SOURCE_DIR}/src/Util.cpp
 )
 

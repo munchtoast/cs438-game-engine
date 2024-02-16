@@ -13,31 +13,65 @@
 #ifndef HANDLER_H
 #define HANDLER_H
 
+#include "Map.h"
+#include "MemoryManagement.h"
 #include <functional>
 
 namespace Handler {
 using EventCallBack = std::function<void()>;
 
-class Handler {
+template <typename T> class Handler {
 public:
-  Handler(int actionCode);
-  virtual ~Handler();
+  // We need to not use this, just use std::vector and also std::function.
+  Handler(int actionCode) {
 
-  void setEventCallBack(EventCallBack *callback);
-  void setActionCode(int nactionCode);
-  int getActionCode();
-  EventCallBack *getEventCallBack();
+    setEventCallBack(
+        new (MemoryManagement::MemoryManagement::allocate<EventCallBack>(
+            sizeof(EventCallBack))) EventCallBack());
 
-  void subscribeObject(GameObject *gameObject);
-  void unsubscribeObject(GameObject *gameObject);
-  void notifyObjects();
+    subscribedObjects =
+        new (MemoryManagement::MemoryManagement::allocate<Map::Map<T>>(
+            sizeof(Map::Map<T>))) Map::Map<T>();
+
+    Handler::setActionCode(actionCode);
+  }
+
+  virtual ~Handler() { cleanup(); }
+
+  void setEventCallBack(EventCallBack *ncallback) { callback = ncallback; }
+
+  void setActionCode(int nactionCode) { actionCode = nactionCode; }
+  int getActionCode() { return actionCode; }
+  EventCallBack *getEventCallBack() { return callback; }
+
+  void subscribeObject(T *object) { getSubscribedObjects()->add(object); }
+
+  void unsubscribeObject(T *object) { getSubscribedObjects()->remove(object); }
+
+  void notifyObjects() {
+    T **mem = getSubscribedObjects()->getMap();
+    for (size_t i = 0; i < getSubscribedObjects()->getSize(); i++) {
+      mem[i]->handleEvent();
+    }
+  }
 
 private:
   EventCallBack *callback;
-  Map::Map<GameObject::GameObject> *subscribedGameObjects;
+  Map::Map<T> *subscribedObjects;
   int actionCode;
 
-  void cleanup();
+  Map::Map<T> *getSubscribedObjects() { return subscribedObjects; }
+
+  void cleanup() {
+    if (!Util::Util::checkIfNullPtr(getEventCallBack()))
+      setEventCallBack(static_cast<EventCallBack *>(
+          MemoryManagement::MemoryManagement::deallocate<EventCallBack>(
+              getEventCallBack())));
+
+    subscribedObjects = static_cast<Map::Map<T> *>(
+        MemoryManagement::MemoryManagement::deallocate(subscribedObjects,
+                                                       false));
+  }
 };
 } // namespace Handler
 

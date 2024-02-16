@@ -1,3 +1,4 @@
+#include "GameObject.h"
 #include "Handler.h"
 #include "MemoryManagement.h"
 #include "Util.h"
@@ -5,16 +6,19 @@
 
 class HandlerTest : public ::testing::Test {
 protected:
-  Handler::Handler *h;
+  Handler::Handler<GameObject::GameObject> *h;
 
   void SetUp() override {
-    h = new (MemoryManagement::MemoryManagement::allocate<Handler::Handler>(
-        sizeof(Handler::Handler))) Handler::Handler(1);
+    h = new (MemoryManagement::MemoryManagement::allocate<
+             Handler::Handler<GameObject::GameObject>>(
+        sizeof(Handler::Handler<GameObject::GameObject>)))
+        Handler::Handler<GameObject::GameObject>(1);
   }
 
   void TearDown() override {
-    h = static_cast<Handler::Handler *>(
-        MemoryManagement::MemoryManagement::deallocate<Handler::Handler>(h));
+    h = static_cast<Handler::Handler<GameObject::GameObject> *>(
+        MemoryManagement::MemoryManagement::deallocate<
+            Handler::Handler<GameObject::GameObject>>(h));
   }
 };
 

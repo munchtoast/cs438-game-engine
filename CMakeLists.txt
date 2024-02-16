@@ -24,8 +24,7 @@ set(SOURCES
   ${CMAKE_SOURCE_DIR}/src/GameObject.cpp 
   ${CMAKE_SOURCE_DIR}/src/Tile.cpp
   ${CMAKE_SOURCE_DIR}/src/UI.cpp
-  ${CMAKE_SOURCE_DIR}/src/Handler.cpp
-  ${CMAKE_SOURCE_DIR}/src/EventHandler.cpp
+  ${CMAKE_SOURCE_DIR}/src/Controller.cpp
 )
 
 include_directories(include)

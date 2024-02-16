@@ -15,7 +15,7 @@ set(TEST_SOURCES "Test_Handler.cpp")
 
 # Add source targets
 set(SOURCE_TARGET 
-  ${CMAKE_SOURCE_DIR}/src/Handler.cpp
+  ${CMAKE_SOURCE_DIR}/src/GameObject.cpp
   ${CMAKE_SOURCE_DIR}/src/Util.cpp
 )
 
