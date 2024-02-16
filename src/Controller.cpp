@@ -1,12 +1,14 @@
 #include "Controller.h"
+#include "GameAction.h"
 #include "Map.h"
 #include "spdlog/spdlog.h"
 
 namespace Controller {
 Controller::Controller() {
-  gameActions =
-      new (MemoryManagement::MemoryManagement::allocate<Map::Map<GameAction>>(
-          sizeof(Map::Map<GameAction>))) Map::Map<GameAction>();
+  gameActions = new (MemoryManagement::MemoryManagement::allocate<
+                     Map::Map<GameAction::GameAction<int>>>(
+      sizeof(Map::Map<GameAction::GameAction<int>>)))
+      Map::Map<GameAction::GameAction<int>>();
 
   // Why are you creating an event handler here and in main? Just put it in one
   // spot. Just let the controller have an event handler. Easy.
@@ -18,15 +20,17 @@ Controller::Controller() {
 
 Controller::~Controller() { Controller::cleanup(); }
 
-void Controller::createGameAction(Map::Map<int> *key, int actionCode) {
-  GameAction *gameAction =
-      new (MemoryManagement::MemoryManagement::allocate<GameAction>(
-          sizeof(GameAction))) GameAction;
+/*
+void Controller::createGameAction(Map::Map<int> *keys, int actionCode) {
+  GameAction::GameAction<int> *gameAction =
+      new
+(MemoryManagement::MemoryManagement::allocate<GameAction::GameAction<int>>(
+          sizeof(GameAction::GameAction<int>)))
+GameAction::GameAction<int>(actionCode);
 
-  gameAction->keys = key;
-  gameAction->actionCode = actionCode;
   Controller::addGameAction(gameAction);
 }
+*/
 
 void Controller::setEventHandler(
     EventHandler::EventHandler<GameObject::GameObject> *neventHandler) {
@@ -35,60 +39,56 @@ void Controller::setEventHandler(
 
 /*
  * @brief The purpose of this function is to compare all of the key inputs
- *within the map data structure. Apply any GameAction applicable based on the
- *inputs received
+ *within the map data structure. Apply any GameAction::GameAction<int>
+ *applicable based on the inputs received
  *
  **/
 void Controller::update(SDL_Event &e) {
-  Map::Map<int> *ckeys =
-      new (MemoryManagement::MemoryManagement::allocate<Map::Map<int>>(
-          sizeof(Map::Map<int>))) Map::Map<int>();
-  ckeys->add(&e.key.keysym.sym);
-  spdlog::info(e.key.keysym.sym);
-  GameAction *gameAction = Controller::getApplicableGameAction(ckeys);
+  if (e.type == SDL_EVENT_KEY_DOWN) {
+    auto k = std::find(getCKeys().begin(), getCKeys().end(), e.key.keysym.sym);
+
+    if (k == getCKeys().end())
+      addCKeys(e.key.keysym.sym);
+
+  } else if (e.type == SDL_EVENT_KEY_UP)
+    removeCKeys(e.key.keysym.sym);
+
+  GameAction::GameAction<int> *gameAction =
+      Controller::getApplicableGameAction(ckeys);
 
   if (gameAction != nullptr)
-    getEventHandler()->handleEvent(gameAction->actionCode);
+    getEventHandler()->handleEvent(gameAction->getActionCode());
 }
 
-void Controller::addGameAction(GameAction *gameAction) {
+void Controller::addGameAction(GameAction::GameAction<int> *gameAction) {
   getGameActions()->add(gameAction);
 }
 
-Map::Map<GameAction> *Controller::getGameActions() { return gameActions; }
+Map::Map<GameAction::GameAction<int>> *Controller::getGameActions() {
+  return gameActions;
+}
 
-GameAction *Controller::getApplicableGameAction(Map::Map<int> *ckeys) {
-  GameAction **gameActionMap = Controller::getGameActions()->getMap();
+GameAction::GameAction<int> *
+Controller::getApplicableGameAction(std::vector<int> ckeys) {
+  GameAction::GameAction<int> **gameActionMap =
+      Controller::getGameActions()->getMap();
 
   for (size_t i = 0; i < Controller::getGameActions()->getSize(); i++)
-    if (Controller::compKeys(gameActionMap[i]->keys, ckeys))
+    if (Controller::compKeys(gameActionMap[i]->getKeys(), ckeys))
       return gameActionMap[i];
 
   return nullptr;
 }
 
-bool Controller::compKeys(Map::Map<int> *keys, Map::Map<int> *ckeys) {
-  bool match = false;
-  int **memkey = keys->getMap();
-  int **memckey = ckeys->getMap();
-
-  if (keys->getSize() != ckeys->getSize())
+bool Controller::compKeys(std::vector<int> keys, std::vector<int> ckeys) {
+  spdlog::info("{}, {}", keys.size(), ckeys.size());
+  if (keys.size() != ckeys.size())
     return false;
 
-  for (size_t i = 0; i < keys->getSize(); i++) {
-    match = false;
-    for (size_t j = 0; j < keys->getSize(); j++) {
-      if (memkey[i] == memckey[j]) {
-        match = true;
-        break;
-      }
-    }
+  std::sort(keys.begin(), keys.end());
+  std::sort(ckeys.begin(), ckeys.end());
 
-    if (!match) {
-      return false;
-    }
-  }
-  return true;
+  return keys == ckeys;
 }
 
 EventHandler::EventHandler<GameObject::GameObject> *
@@ -96,10 +96,18 @@ Controller::getEventHandler() {
   return eventHandler;
 }
 
+std::vector<int> Controller::getCKeys() { return ckeys; }
+
+void Controller::addCKeys(int key) { ckeys.push_back(key); }
+
+void Controller::removeCKeys(int key) {
+  ckeys.erase(std::remove(ckeys.begin(), ckeys.end(), key), ckeys.end());
+}
+
 void Controller::cleanup() {
-  gameActions = static_cast<Map::Map<GameAction> *>(
-      MemoryManagement::MemoryManagement::deallocate<Map::Map<GameAction>>(
-          getGameActions()));
+  gameActions = static_cast<Map::Map<GameAction::GameAction<int>> *>(
+      MemoryManagement::MemoryManagement::deallocate<
+          Map::Map<GameAction::GameAction<int>>>(getGameActions()));
 
   eventHandler =
       static_cast<EventHandler::EventHandler<GameObject::GameObject> *>(

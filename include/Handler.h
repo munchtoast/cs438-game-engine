@@ -8,6 +8,10 @@
  *
  * @version
  * - 1.0: Initial implementation (dexter@nekocake.cafe) (2024-02-15)
+ * - 1.1: Force Complete Clear to false for subscribed objects, and enforce
+ * callback to be manually set (dexter@nekocake.cafe) (2024-02-16)
+ *        @reason The responsibility of these objects are not on the handler
+ * itself, but the object map, or the game state
  */
 
 #ifndef HANDLER_H
@@ -22,16 +26,14 @@ using EventCallBack = std::function<void()>;
 
 template <typename T> class Handler {
 public:
-  // We need to not use this, just use std::vector and also std::function.
   Handler(int actionCode) {
-
-    setEventCallBack(
-        new (MemoryManagement::MemoryManagement::allocate<EventCallBack>(
-            sizeof(EventCallBack))) EventCallBack());
+    callback = static_cast<EventCallBack *>(nullptr);
 
     subscribedObjects =
         new (MemoryManagement::MemoryManagement::allocate<Map::Map<T>>(
             sizeof(Map::Map<T>))) Map::Map<T>();
+
+    subscribedObjects->setCC(false);
 
     Handler::setActionCode(actionCode);
   }
@@ -63,14 +65,13 @@ private:
   Map::Map<T> *getSubscribedObjects() { return subscribedObjects; }
 
   void cleanup() {
-    if (!Util::Util::checkIfNullPtr(getEventCallBack()))
+    if (!Util::Util::checkIfNullPtr(static_cast<void *>(getEventCallBack())))
       setEventCallBack(static_cast<EventCallBack *>(
           MemoryManagement::MemoryManagement::deallocate<EventCallBack>(
               getEventCallBack())));
 
     subscribedObjects = static_cast<Map::Map<T> *>(
-        MemoryManagement::MemoryManagement::deallocate(subscribedObjects,
-                                                       false));
+        MemoryManagement::MemoryManagement::deallocate(subscribedObjects));
   }
 };
 } // namespace Handler

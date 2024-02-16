@@ -49,30 +49,37 @@ int main() {
   gameObjectMap->add(tile);
 
   // Creates a handler that handles an action SDLK_RIGHT:
+
+  Handler::EventCallBack *c = new (
+      MemoryManagement::MemoryManagement::allocate<Handler::EventCallBack>(
+          sizeof(Handler::EventCallBack)))
+      Handler::EventCallBack([&camera]() { camera->setX(camera->getX() + 5); });
+
   Handler::Handler<GameObject::GameObject> *handler =
       new (MemoryManagement::MemoryManagement::allocate<
            Handler::Handler<GameObject::GameObject>>(
           sizeof(Handler::Handler<GameObject::GameObject>)))
-          Handler::Handler<GameObject::GameObject>(SDLK_RIGHT);
+          Handler::Handler<GameObject::GameObject>(1);
 
   // Subscribe object
   handler->subscribeObject(camera);
 
-  // handler->setEventCallBack([&camera]() { camera->setX(camera->getX() + 5);
-  // });
+  handler->setEventCallBack(c);
 
-  // You are not freeing the inner object.
-  // Controller::Controller *controller = new
-  // (MemoryManagement::MemoryManagement::allocate<Controller::Controller>(sizeof(Controller::Controller)))
-  // Controller::Controller();
+  // handler->unsubscribeObject(camera);
 
-  // Map::Map<int> *key = new
-  // (MemoryManagement::MemoryManagement::allocate<Map::Map<int>>(sizeof(Map::Map<int>)))
-  // Map::Map<int>();
+  Controller::Controller *controller =
+      new (MemoryManagement::MemoryManagement::allocate<Controller::Controller>(
+          sizeof(Controller::Controller))) Controller::Controller();
 
-  // key->add((int *) SDLK_RIGHT);
+  controller->getEventHandler()->addHandler(handler);
 
-  // controller->createGameAction(key, 1);
+  GameAction::GameAction<int> *gameAction = new (
+      MemoryManagement::MemoryManagement::allocate<GameAction::GameAction<int>>(
+          sizeof(GameAction::GameAction<int>))) GameAction::GameAction<int>(1);
+
+  controller->addGameAction(gameAction);
+  gameAction->addKey(SDLK_RIGHT);
 
   tile->setColorChoice(255, 0, 0, 255);
 
@@ -81,6 +88,7 @@ int main() {
 
   while (!quit) {
     while (SDL_PollEvent(&e) != 0) {
+      controller->update(e);
       // if (e.type == SDL_EVENT_KEY_DOWN) {
       //   switch (e.key.keysym.sym) {
       //   case SDLK_LEFT:
@@ -109,7 +117,6 @@ int main() {
     gameWindow.setRenderDrawColor(tile->getColor()->r, tile->getColor()->g,
                                   tile->getColor()->b, tile->getColor()->a);
 
-    // controller->update(e);
     screen->update();
     tile->update();
     camera->update();
@@ -138,11 +145,14 @@ int main() {
       MemoryManagement::MemoryManagement::deallocate<
           Map::Map<GameObject::GameObject>>(gameObjectMap));
 
-  MemoryManagement::MemoryManagement::deallocate<
-      Handler::Handler<GameObject::GameObject>>(handler);
+  // MemoryManagement::MemoryManagement::deallocate<
+  //     Handler::Handler<GameObject::GameObject>>(handler);
 
-  // controller = static_cast<Controller::Controller
-  // *>(MemoryManagement::MemoryManagement::deallocate<Controller::Controller>(controller));
+  // MemoryManagement::MemoryManagement::deallocate<Handler::EventCallBack>(c);
+
+  controller = static_cast<Controller::Controller *>(
+      MemoryManagement::MemoryManagement::deallocate<Controller::Controller>(
+          controller));
 
   // key = static_cast<Map::Map<int>
   // *>(MemoryManagement::MemoryManagement::deallocate<Map::Map<int>>(key));
