@@ -1,5 +1,7 @@
 # test/CMakeLists.txt
 
+include_directories(include)
+
 # Add a target for the test runner
 add_executable(test_gameObject Test_GameObject.cpp)
 
@@ -15,7 +17,6 @@ set(TEST_SOURCES "Test_GameObject.cpp")
 set(SOURCE_TARGET 
   ${CMAKE_SOURCE_DIR}/src/GameObject.cpp
   ${CMAKE_SOURCE_DIR}/src/Util.cpp
-  ${CMAKE_SOURCE_DIR}/src/MemoryManagement.cpp
 )
 
 target_sources(test_gameObject PRIVATE ${TEST_SOURCES} ${SOURCE_TARGET})

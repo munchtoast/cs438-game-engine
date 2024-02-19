@@ -1,5 +1,7 @@
 # test/CMakeLists.txt
 
+include_directories(include)
+
 # Add a target for the test runner
 add_executable(test_memoryManagement Test_MemoryManagement.cpp)
 
@@ -13,7 +15,6 @@ set(TEST_SOURCES "Test_MemoryManagement.cpp")
 
 # Add source targets
 set(SOURCE_TARGET 
-  ${CMAKE_SOURCE_DIR}/src/MemoryManagement.cpp
   ${CMAKE_SOURCE_DIR}/src/Util.cpp
 )
 

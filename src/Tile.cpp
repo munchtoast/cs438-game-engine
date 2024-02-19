@@ -18,8 +18,9 @@ namespace Tile {
  */
 Tile::Tile(float x, float y, float width, float height)
     : GameObject(x, y, width, height) {
-  color = (RectStruct::Color *)MemoryManagement::MemoryManagement::allocate(
-      sizeof(RectStruct::Color));
+  color = static_cast<RectStruct::Color *>(
+      MemoryManagement::MemoryManagement::allocate<RectStruct::Color>(
+          sizeof(RectStruct::Color)));
 
   Tile::setColorChoice(255, 255, 255, 255);
 }
@@ -38,9 +39,9 @@ void Tile::setColorChoice(Uint8 r, Uint8 g, Uint8 b, Uint8 a) {
 }
 
 void Tile::cleanup() {
-  Tile::setColor(
-      (RectStruct::Color *)MemoryManagement::MemoryManagement::deallocate(
-          getColor()));
+  Tile::setColor(static_cast<RectStruct::Color *>(
+      MemoryManagement::MemoryManagement::deallocate<RectStruct::Color>(
+          getColor())));
   Util::Util::checkIfMemFreeSuccess(Tile::getColor());
 }
 } // namespace Tile

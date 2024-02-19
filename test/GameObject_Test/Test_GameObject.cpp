@@ -1,5 +1,5 @@
-#include "../../src/GameObject.h"
-#include "../../src/Util.h"
+#include "GameObject.h"
+#include "Util.h"
 #include "gtest/gtest.h"
 
 class GameObjectTest : public ::testing::Test {

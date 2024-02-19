@@ -38,7 +38,7 @@ public:
 
   void clearScreen();
   void setRenderDrawColor(Uint8 r, Uint8 g, Uint8 b, Uint8 a);
-  void drawRect(SDL_FRect *rect);
+  void drawRect(SDL_Rect *rect);
   void present();
 
 private:

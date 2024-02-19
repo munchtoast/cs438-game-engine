@@ -1,4 +1,4 @@
-#include "../../src/GameWindow.h"
+#include "GameWindow.h"
 #include "gtest/gtest.h"
 
 class WindowTest : public ::testing::Test {

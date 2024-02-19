@@ -49,8 +49,10 @@ void GameWindow::setRenderDrawColor(Uint8 r, Uint8 g, Uint8 b, Uint8 a) {
   SDL_SetRenderDrawColor(renderer, r, g, b, a);
 }
 
-void GameWindow::drawRect(SDL_FRect *rect) {
-  SDL_RenderFillRect(renderer, rect);
+void GameWindow::drawRect(SDL_Rect *rect) {
+  SDL_FRect frect = {static_cast<float>(rect->x), static_cast<float>(rect->y),
+                     static_cast<float>(rect->w), static_cast<float>(rect->h)};
+  SDL_RenderFillRect(renderer, &frect);
 }
 
 void GameWindow::present() { SDL_RenderPresent(renderer); }

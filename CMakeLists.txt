@@ -19,23 +19,17 @@ add_subdirectory(${CMAKE_SOURCE_DIR}/submodule/spdlog)
 # Add source files, include *.cpp and *.h
 set(SOURCES 
   ${CMAKE_SOURCE_DIR}/src/Util.cpp
-  ${CMAKE_SOURCE_DIR}/src/MemoryManagement.cpp
   ${CMAKE_SOURCE_DIR}/src/Main.cpp 
   ${CMAKE_SOURCE_DIR}/src/GameWindow.cpp 
   ${CMAKE_SOURCE_DIR}/src/GameObject.cpp 
   ${CMAKE_SOURCE_DIR}/src/Tile.cpp
+  ${CMAKE_SOURCE_DIR}/src/UI.cpp
+  ${CMAKE_SOURCE_DIR}/src/Controller.cpp
 )
 
-set(HEADERS 
-  ${CMAKE_SOURCE_DIR}/src/Util.h
-  ${CMAKE_SOURCE_DIR}/src/MemoryManagement.h
-  ${CMAKE_SOURCE_DIR}/src/RectStruct.h
-  ${CMAKE_SOURCE_DIR}/src/GameWindow.h 
-  ${CMAKE_SOURCE_DIR}/src/GameObject.h 
-  ${CMAKE_SOURCE_DIR}/src/Tile.h
-)
+include_directories(include)
 
-add_executable(game-engine ${SOURCES} ${HEADERS})
+add_executable(game-engine ${SOURCES})
 
 target_link_libraries(game-engine PRIVATE SDL3::SDL3 mimalloc)
 target_link_libraries(game-engine PRIVATE spdlog)
@@ -50,4 +44,8 @@ if(BUILD_TESTING)
   add_subdirectory(test/Tile_Test)
   add_subdirectory(test/Util_Test)
   add_subdirectory(test/MemoryManagement_Test)
+  add_subdirectory(test/Map_Test)
+  add_subdirectory(test/UI_Test)
+  add_subdirectory(test/Handler_Test)
+  add_subdirectory(test/EventHandler_Test)
 endif()
