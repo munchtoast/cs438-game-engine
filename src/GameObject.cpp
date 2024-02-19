@@ -69,7 +69,7 @@ void GameObject::addSubGameObject(GameObject *subGameObject) {
   getSubGameObjects()->add(subGameObject);
 }
 
-void handleEvent() { spdlog::info("GameObject handled an event"); }
+void GameObject::handleEvent() { spdlog::info("GameObject handled an event"); }
 
 /**
  * @brief Updates internal position to the render

@@ -44,17 +44,15 @@ public:
 
   void setActionCode(int nactionCode) { actionCode = nactionCode; }
   int getActionCode() { return actionCode; }
-  EventCallBack *getEventCallBack() { return callback; }
 
   void subscribeObject(T *object) { getSubscribedObjects()->add(object); }
 
   void unsubscribeObject(T *object) { getSubscribedObjects()->remove(object); }
 
-  void notifyObjects() {
-    T **mem = getSubscribedObjects()->getMap();
-    for (size_t i = 0; i < getSubscribedObjects()->getSize(); i++) {
-      mem[i]->handleEvent();
-    }
+  void callBackAndNotifyObjects() {
+    EventCallBack c = *getEventCallBack();
+    notifyObjects();
+    c();
   }
 
 private:
@@ -73,6 +71,15 @@ private:
     subscribedObjects = static_cast<Map::Map<T> *>(
         MemoryManagement::MemoryManagement::deallocate(subscribedObjects));
   }
+
+  void notifyObjects() {
+    T **mem = getSubscribedObjects()->getMap();
+    for (size_t i = 0; i < getSubscribedObjects()->getSize(); i++) {
+      mem[i]->handleEvent();
+    }
+  }
+
+  EventCallBack *getEventCallBack() { return callback; }
 };
 } // namespace Handler
 

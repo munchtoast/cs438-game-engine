@@ -29,6 +29,5 @@ TEST_F(HandlerTest, CheckThrowHandle) {
       new (MemoryManagement::MemoryManagement::allocate<Handler::EventCallBack>(
           sizeof(Handler::EventCallBack)))
           Handler::EventCallBack([]() { throw std::runtime_error("FAIL"); }));
-  Handler::EventCallBack callback = *h->getEventCallBack();
-  ASSERT_THROW(callback(), std::runtime_error);
+  ASSERT_THROW(h->callBackAndNotifyObjects(), std::runtime_error);
 }

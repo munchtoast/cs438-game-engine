@@ -1,5 +1,6 @@
 #include "Controller.h"
 #include "GameAction.h"
+#include "GameObject.h"
 #include "Map.h"
 #include "spdlog/spdlog.h"
 
@@ -10,8 +11,6 @@ Controller::Controller() {
       sizeof(Map::Map<GameAction::GameAction<int>>)))
       Map::Map<GameAction::GameAction<int>>();
 
-  // Why are you creating an event handler here and in main? Just put it in one
-  // spot. Just let the controller have an event handler. Easy.
   eventHandler = new (MemoryManagement::MemoryManagement::allocate<
                       EventHandler::EventHandler<GameObject::GameObject>>(
       sizeof(EventHandler::EventHandler<GameObject::GameObject>)))
@@ -19,18 +18,6 @@ Controller::Controller() {
 }
 
 Controller::~Controller() { Controller::cleanup(); }
-
-/*
-void Controller::createGameAction(Map::Map<int> *keys, int actionCode) {
-  GameAction::GameAction<int> *gameAction =
-      new
-(MemoryManagement::MemoryManagement::allocate<GameAction::GameAction<int>>(
-          sizeof(GameAction::GameAction<int>)))
-GameAction::GameAction<int>(actionCode);
-
-  Controller::addGameAction(gameAction);
-}
-*/
 
 void Controller::setEventHandler(
     EventHandler::EventHandler<GameObject::GameObject> *neventHandler) {
@@ -74,14 +61,13 @@ Controller::getApplicableGameAction(std::vector<int> ckeys) {
       Controller::getGameActions()->getMap();
 
   for (size_t i = 0; i < Controller::getGameActions()->getSize(); i++)
-    if (Controller::compKeys(gameActionMap[i]->getKeys(), ckeys))
+    if (Controller::cmpKeys(gameActionMap[i]->getKeys(), ckeys))
       return gameActionMap[i];
 
   return nullptr;
 }
 
-bool Controller::compKeys(std::vector<int> keys, std::vector<int> ckeys) {
-  spdlog::info("{}, {}", keys.size(), ckeys.size());
+bool Controller::cmpKeys(std::vector<int> keys, std::vector<int> ckeys) {
   if (keys.size() != ckeys.size())
     return false;
 

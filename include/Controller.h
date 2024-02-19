@@ -42,7 +42,8 @@ private:
   void removeCKeys(int key);
   Map::Map<GameAction::GameAction<int>> *getGameActions();
   GameAction::GameAction<int> *getApplicableGameAction(std::vector<int> ckeys);
-  bool compKeys(std::vector<int> keys, std::vector<int> ckeys);
+  bool Keys(std::vector<int> keys, std::vector<int> ckeys);
+  bool cmpKeys(std::vector<int> keys, std::vector<int> ckeys);
   void cleanup();
 };
 } // namespace Controller

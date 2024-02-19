@@ -31,11 +31,8 @@ public:
   void handleEvent(int actionCode) {
     Handler::EventCallBack c;
     for (size_t i = 0; i < getHandlers()->getSize(); i++) {
-      if (getHandlers()->getMap()[i]->getActionCode() == actionCode) {
-        c = *getHandlers()->getMap()[i]->getEventCallBack();
-        c();
-      } else
-        spdlog::warn("Action code does not have a valid handler");
+      if (getHandlers()->getMap()[i]->getActionCode() == actionCode)
+        getHandlers()->getMap()[i]->callBackAndNotifyObjects();
     }
   }
 
