@@ -1,6 +1,7 @@
-#include "../../src/Map.h"
-#include "../../src/MemoryManagement.h"
-#include "../../src/Util.h"
+#include "GameObject.h"
+#include "Map.h"
+#include "MemoryManagement.h"
+#include "Util.h"
 #include "mimalloc.h"
 #include "gtest/gtest.h"
 

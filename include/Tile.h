@@ -15,6 +15,8 @@
  *
  * @version
  * - 1.0: Initial implementation (dexter@nekocake.cafe) (2024-02-01)
+ * - 1.1: Remove unnecessary includes that cause circular dependencies
+ * (dexter@nekocake.cafe) (2024-02-09)
  */
 
 #ifndef TILE_H
@@ -22,11 +24,9 @@
 
 #include "GameObject.h"
 #include "RectStruct.h"
-
 #include <SDL.h>
 
 namespace Tile {
-
 class Tile : public GameObject::GameObject {
 public:
   Tile(float x, float y, float width, float height);

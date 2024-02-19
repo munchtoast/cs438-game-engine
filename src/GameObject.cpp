@@ -1,9 +1,11 @@
 #include "GameObject.h"
+#include "Map.h"
 #include "MemoryManagement.h"
 #include "RectStruct.h"
 #include "Util.h"
 #include <SDL.h>
 #include <mimalloc.h>
+#include <spdlog/spdlog.h>
 
 namespace GameObject {
 /**
@@ -15,9 +17,13 @@ namespace GameObject {
  * @param h - Size of the GameObject's height
  */
 GameObject::GameObject(float x, float y, float width, float height) {
-  rectProperties = static_cast<RectStruct::Rect *>(
+  GameObject::setRectProperties(static_cast<RectStruct::Rect *>(
       MemoryManagement::MemoryManagement::allocate<RectStruct::Rect>(
-          sizeof(RectStruct::Rect)));
+          sizeof(RectStruct::Rect))));
+
+  GameObject::setSubGameObjects(
+      new (MemoryManagement::MemoryManagement::allocate<Map::Map<GameObject>>(
+          sizeof(Map::Map<GameObject>))) Map::Map<GameObject>());
 
   GameObject::setX(x);
   GameObject::setY(y);
@@ -57,6 +63,14 @@ void GameObject::setRectProperties(RectStruct::Rect *ptr) {
   rectProperties = ptr;
 }
 
+Map::Map<GameObject> *GameObject::getSubGameObjects() { return subGameObjects; }
+
+void GameObject::addSubGameObject(GameObject *subGameObject) {
+  getSubGameObjects()->add(subGameObject);
+}
+
+void GameObject::handleEvent() { spdlog::info("GameObject handled an event"); }
+
 /**
  * @brief Updates internal position to the render
  */
@@ -67,10 +81,18 @@ void GameObject::update() {
   GameObject::getRect()->h = GameObject::getRectProperties()->size.height;
 }
 
+void GameObject::setSubGameObjects(Map::Map<GameObject> *nSubGameObjects) {
+  subGameObjects = nSubGameObjects;
+}
+
 void GameObject::cleanup() {
   GameObject::setRectProperties(static_cast<RectStruct::Rect *>(
-      MemoryManagement::MemoryManagement::deallocate(
+      MemoryManagement::MemoryManagement::deallocate<RectStruct::Rect>(
           GameObject::getRectProperties())));
   Util::Util::checkIfMemFreeSuccess(GameObject::getRectProperties());
+
+  GameObject::setSubGameObjects(static_cast<Map::Map<GameObject> *>(
+      MemoryManagement::MemoryManagement::deallocate<Map::Map<GameObject>>(
+          GameObject::getSubGameObjects())));
 }
 } // namespace GameObject
