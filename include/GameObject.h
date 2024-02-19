@@ -17,6 +17,7 @@
  * - 1.0: Initial implementation (dexter@nekocake.cafe) (2024-02-01)
  * - 1.1: Add sub game objects for allowing hierarchical dependency
  * (dexter@nekocake.cafe) (2024-02-09)
+ * 1.2: Add custom event handler (dexter@nekocake.cafe) (2024-02-15)
  */
 
 #ifndef GAMEOBJECT_H
@@ -50,6 +51,7 @@ public:
   float getW();
   float getH();
 
+  void handleEvent();
   void update();
 
 protected:

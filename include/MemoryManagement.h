@@ -16,6 +16,8 @@
  * @version
  * - 1.0: Initial implementation (dexter@nekocake.cafe) (2024-02-02)
  * - 1.1: Convert source code to templates (dexter@nekocake.cafe) (2024-02-07)
+ * - 1.2: Add Complete Clear (CC) to not free objects individually within memory
+ * (dexter@nekocake.cafe) (2024-02-16)
  */
 
 #ifndef MEMORY_MANAGEMENT_H
@@ -45,13 +47,18 @@ public:
    * back
    *
    * @param ptr - Address of the memory block to be freed
+   * @param cc - Complete Cleanup, calls destructor on each object individually
+   *
+   * @note Not enabling cc can result in memory leaks if not done properly. Use
+   * it wisely.
    */
-  template <typename T> static T *deallocate(T *ptr) {
+  template <typename T> static T *deallocate(T *ptr, bool cc = true) {
     if (Util::Util::checkIfNullPtr(ptr))
       throw std::runtime_error("Freeing unsafe memory!");
 
     // Call destructors for each object in the memory block
-    destructObjects<T>(ptr);
+    if (cc)
+      destructObjects<T>(ptr);
 
     mi_free(ptr);
     return nullptr;

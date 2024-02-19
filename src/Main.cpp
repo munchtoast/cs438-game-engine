@@ -1,5 +1,8 @@
+#include "Controller.h"
+#include "EventHandler.h"
 #include "GameObject.h"
 #include "GameWindow.h"
+#include "Handler.h"
 #include "Map.h"
 #include "MemoryManagement.h"
 #include "Tile.h"
@@ -8,6 +11,7 @@
 #include <spdlog/spdlog.h>
 
 int main() {
+  // Init basic GameObjects and Window
   const int windowWidth = 640;
   const int windowHeight = 480;
 
@@ -45,6 +49,109 @@ int main() {
   gameObjectMap->add(camera);
   gameObjectMap->add(tile);
 
+  // Subscribe Move Right
+  Handler::EventCallBack *moveRight = new (
+      MemoryManagement::MemoryManagement::allocate<Handler::EventCallBack>(
+          sizeof(Handler::EventCallBack)))
+      Handler::EventCallBack([&camera]() { camera->setX(camera->getX() + 5); });
+
+  Handler::Handler<GameObject::GameObject> *handlerRight =
+      new (MemoryManagement::MemoryManagement::allocate<
+           Handler::Handler<GameObject::GameObject>>(
+          sizeof(Handler::Handler<GameObject::GameObject>)))
+          Handler::Handler<GameObject::GameObject>(1);
+
+  handlerRight->subscribeObject(camera);
+
+  handlerRight->setEventCallBack(moveRight);
+
+  // Subscribe Move Left
+  Handler::EventCallBack *moveLeft = new (
+      MemoryManagement::MemoryManagement::allocate<Handler::EventCallBack>(
+          sizeof(Handler::EventCallBack)))
+      Handler::EventCallBack([&camera]() { camera->setX(camera->getX() - 5); });
+
+  Handler::Handler<GameObject::GameObject> *handlerLeft =
+      new (MemoryManagement::MemoryManagement::allocate<
+           Handler::Handler<GameObject::GameObject>>(
+          sizeof(Handler::Handler<GameObject::GameObject>)))
+          Handler::Handler<GameObject::GameObject>(2);
+
+  handlerLeft->subscribeObject(camera);
+
+  handlerLeft->setEventCallBack(moveLeft);
+
+  // Subscribe Move Up
+  Handler::EventCallBack *moveUp = new (
+      MemoryManagement::MemoryManagement::allocate<Handler::EventCallBack>(
+          sizeof(Handler::EventCallBack)))
+      Handler::EventCallBack([&camera]() { camera->setY(camera->getY() - 5); });
+
+  Handler::Handler<GameObject::GameObject> *handlerUp =
+      new (MemoryManagement::MemoryManagement::allocate<
+           Handler::Handler<GameObject::GameObject>>(
+          sizeof(Handler::Handler<GameObject::GameObject>)))
+          Handler::Handler<GameObject::GameObject>(3);
+
+  handlerUp->subscribeObject(camera);
+
+  handlerUp->setEventCallBack(moveUp);
+
+  // Subscribe Move Down
+  Handler::EventCallBack *moveDown = new (
+      MemoryManagement::MemoryManagement::allocate<Handler::EventCallBack>(
+          sizeof(Handler::EventCallBack)))
+      Handler::EventCallBack([&camera]() { camera->setY(camera->getY() + 5); });
+
+  Handler::Handler<GameObject::GameObject> *handlerDown =
+      new (MemoryManagement::MemoryManagement::allocate<
+           Handler::Handler<GameObject::GameObject>>(
+          sizeof(Handler::Handler<GameObject::GameObject>)))
+          Handler::Handler<GameObject::GameObject>(4);
+
+  handlerDown->subscribeObject(camera);
+
+  handlerDown->setEventCallBack(moveDown);
+
+  // Controller settings
+  Controller::Controller *controller =
+      new (MemoryManagement::MemoryManagement::allocate<Controller::Controller>(
+          sizeof(Controller::Controller))) Controller::Controller();
+
+  controller->getEventHandler()->addHandler(handlerRight);
+  controller->getEventHandler()->addHandler(handlerLeft);
+  controller->getEventHandler()->addHandler(handlerUp);
+  controller->getEventHandler()->addHandler(handlerDown);
+
+  // Assign Game Actions
+  GameAction::GameAction<int> *gameActionMoveRight = new (
+      MemoryManagement::MemoryManagement::allocate<GameAction::GameAction<int>>(
+          sizeof(GameAction::GameAction<int>))) GameAction::GameAction<int>(1);
+
+  GameAction::GameAction<int> *gameActionMoveLeft = new (
+      MemoryManagement::MemoryManagement::allocate<GameAction::GameAction<int>>(
+          sizeof(GameAction::GameAction<int>))) GameAction::GameAction<int>(2);
+
+  GameAction::GameAction<int> *gameActionMoveUp = new (
+      MemoryManagement::MemoryManagement::allocate<GameAction::GameAction<int>>(
+          sizeof(GameAction::GameAction<int>))) GameAction::GameAction<int>(3);
+
+  GameAction::GameAction<int> *gameActionMoveDown = new (
+      MemoryManagement::MemoryManagement::allocate<GameAction::GameAction<int>>(
+          sizeof(GameAction::GameAction<int>))) GameAction::GameAction<int>(4);
+
+  controller->addGameAction(gameActionMoveRight);
+  gameActionMoveRight->addKey(SDLK_RIGHT);
+
+  controller->addGameAction(gameActionMoveLeft);
+  gameActionMoveLeft->addKey(SDLK_LEFT);
+
+  controller->addGameAction(gameActionMoveUp);
+  gameActionMoveUp->addKey(SDLK_UP);
+
+  controller->addGameAction(gameActionMoveDown);
+  gameActionMoveDown->addKey(SDLK_DOWN);
+
   tile->setColorChoice(255, 0, 0, 255);
 
   bool quit = false;
@@ -52,22 +159,7 @@ int main() {
 
   while (!quit) {
     while (SDL_PollEvent(&e) != 0) {
-      if (e.type == SDL_EVENT_KEY_DOWN) {
-        switch (e.key.keysym.sym) {
-        case SDLK_LEFT:
-          camera->setX(camera->getX() - 5);
-          break;
-        case SDLK_RIGHT:
-          camera->setX(camera->getX() + 5);
-          break;
-        case SDLK_UP:
-          camera->setY(camera->getY() - 5);
-          break;
-        case SDLK_DOWN:
-          camera->setY(camera->getY() + 5);
-          break;
-        }
-      }
+      controller->update(e);
 
       if (e.type == SDL_EVENT_QUIT) {
         quit = true;
@@ -96,17 +188,16 @@ int main() {
     }
 
     gameWindow.present();
-
-    spdlog::info("Tile position: {}, {}", tile->getRect()->x,
-                 tile->getRect()->y);
-    spdlog::info("Camera position: {}, {}", camera->getRect()->x,
-                 camera->getRect()->y);
   }
   SDL_Quit();
 
   gameObjectMap = static_cast<Map::Map<GameObject::GameObject> *>(
       MemoryManagement::MemoryManagement::deallocate<
           Map::Map<GameObject::GameObject>>(gameObjectMap));
+
+  controller = static_cast<Controller::Controller *>(
+      MemoryManagement::MemoryManagement::deallocate<Controller::Controller>(
+          controller));
 
   return 0;
 }
