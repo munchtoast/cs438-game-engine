@@ -24,6 +24,7 @@ namespace GameObject {
 class GameObject;
 }
 
+#include "RectStruct.h"
 #include <SDL.h>
 
 namespace GameWindow {
@@ -38,7 +39,8 @@ public:
 
   void clearScreen();
   void setRenderDrawColor(Uint8 r, Uint8 g, Uint8 b, Uint8 a);
-  void drawRect(SDL_Rect *rect);
+  void draw(int x, int y, RectStruct::Color *c);
+  void drawRect(int x, int y, int width, int height, RectStruct::Color *c);
   void present();
 
 private:

@@ -5,6 +5,7 @@
 #include "Handler.h"
 #include "Map.h"
 #include "MemoryManagement.h"
+#include "RectStruct.h"
 #include "Tile.h"
 #include <SDL.h>
 #include <mimalloc.h>
@@ -166,25 +167,14 @@ int main() {
       }
     }
 
-    gameWindow.setRenderDrawColor(255, 255, 255, 255);
     gameWindow.clearScreen();
-
-    gameWindow.setRenderDrawColor(tile->getColor()->r, tile->getColor()->g,
-                                  tile->getColor()->b, tile->getColor()->a);
-
-    screen->update();
-    tile->update();
-    camera->update();
 
     if (std::abs(tile->getX()) <= std::abs(camera->getW()) &&
         std::abs(tile->getY()) <= std::abs(camera->getH())) {
-      SDL_Rect *dupe = MemoryManagement::MemoryManagement::DeepCopy<SDL_Rect *>(
-                           tile->getRect())
-                           .getValue();
 
-      dupe->x = (dupe->x - camera->getX());
-      dupe->y = (dupe->y - camera->getY());
-      gameWindow.drawRect(dupe);
+      gameWindow.drawRect(tile->getX() - camera->getX(),
+                          tile->getY() - camera->getY(), tile->getW(),
+                          tile->getH(), tile->getColor());
     }
 
     gameWindow.present();

@@ -4,12 +4,19 @@
 
 class UITest : public ::testing::Test {
 protected:
-  UI::UI camera{100, 100, 100, 100};
+  UI::UI *ui;
+  void SetUp() override {
+    ui = new (MemoryManagement::MemoryManagement::allocate<UI::UI>(
+        sizeof(UI::UI))) UI::UI(100, 100, 100, 100);
+  }
+
+  void TearDown() override {
+    ui = MemoryManagement::MemoryManagement::deallocate<UI::UI>(ui);
+  }
 };
 
 TEST_F(UITest, CheckProperMove) {
-  camera.move(10, 10);
-  camera.update();
-  ASSERT_TRUE(camera.getRect()->x == 110);
-  ASSERT_TRUE(camera.getRect()->y == 110);
+  ui->move(10, 10);
+  ASSERT_TRUE(ui->getRectProperties()->position.x == 110);
+  ASSERT_TRUE(ui->getRectProperties()->position.y == 110);
 }

@@ -33,14 +33,12 @@ public:
   GameObject(float x, float y, float width, float height);
   virtual ~GameObject();
 
-  RectStruct::Rect *rectProperties;
   RectStruct::Rect *getRectProperties();
   void setRectProperties(RectStruct::Rect *ptr);
 
   Map::Map<GameObject> *getSubGameObjects();
   void addSubGameObject(GameObject *subGameObject);
 
-  SDL_Rect *getRect();
   void setX(float x);
   void setY(float y);
   void setW(float width);
@@ -52,14 +50,13 @@ public:
   float getH();
 
   void handleEvent();
-  void update();
 
 protected:
   void setSubGameObjects(Map::Map<GameObject> *subGameObjects);
 
 private:
   Map::Map<GameObject> *subGameObjects;
-  SDL_Rect rect;
+  RectStruct::Rect *rectProperties;
 
   void cleanup();
 };

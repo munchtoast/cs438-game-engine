@@ -33,8 +33,6 @@ GameObject::GameObject(float x, float y, float width, float height) {
 
 GameObject::~GameObject() { GameObject::cleanup(); }
 
-SDL_Rect *GameObject::getRect() { return &rect; }
-
 void GameObject::setX(float x) {
   GameObject::getRectProperties()->position.x = x;
 }
@@ -70,16 +68,6 @@ void GameObject::addSubGameObject(GameObject *subGameObject) {
 }
 
 void GameObject::handleEvent() { spdlog::info("GameObject handled an event"); }
-
-/**
- * @brief Updates internal position to the render
- */
-void GameObject::update() {
-  GameObject::getRect()->x = GameObject::getRectProperties()->position.x;
-  GameObject::getRect()->y = GameObject::getRectProperties()->position.y;
-  GameObject::getRect()->w = GameObject::getRectProperties()->size.width;
-  GameObject::getRect()->h = GameObject::getRectProperties()->size.height;
-}
 
 void GameObject::setSubGameObjects(Map::Map<GameObject> *nSubGameObjects) {
   subGameObjects = nSubGameObjects;

@@ -43,16 +43,27 @@ SDL_Window *GameWindow::getWindow() { return window; }
 
 SDL_Renderer *GameWindow::getRenderer() { return renderer; }
 
-void GameWindow::clearScreen() { SDL_RenderClear(renderer); }
+void GameWindow::clearScreen() {
+  setRenderDrawColor(255, 255, 255, 255);
+  SDL_RenderClear(renderer);
+}
 
 void GameWindow::setRenderDrawColor(Uint8 r, Uint8 g, Uint8 b, Uint8 a) {
   SDL_SetRenderDrawColor(renderer, r, g, b, a);
 }
 
-void GameWindow::drawRect(SDL_Rect *rect) {
-  SDL_FRect frect = {static_cast<float>(rect->x), static_cast<float>(rect->y),
-                     static_cast<float>(rect->w), static_cast<float>(rect->h)};
-  SDL_RenderFillRect(renderer, &frect);
+void GameWindow::draw(int x, int y, RectStruct::Color *c) {
+  setRenderDrawColor(c->r, c->g, c->b, c->a);
+  SDL_RenderPoint(getRenderer(), x, y);
+}
+
+void GameWindow::drawRect(int x, int y, int width, int height,
+                          RectStruct::Color *c) {
+  for (int i = x; i < x + width; i++) {
+    for (int j = y; j < y + height; j++) {
+      draw(i, j, c);
+    }
+  }
 }
 
 void GameWindow::present() { SDL_RenderPresent(renderer); }

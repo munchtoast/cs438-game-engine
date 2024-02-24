@@ -43,8 +43,16 @@ void Controller::update(SDL_Event &e) {
   GameAction::GameAction<int> *gameAction =
       Controller::getApplicableGameAction(ckeys);
 
-  if (gameAction != nullptr)
+  /*
+   * @brief An applicable game action is recognized given from user input. Go
+   *ahead and run the handler associated with the action code. Then make sure to
+   *clear all keys to receive new inputs from user.
+   *
+   **/
+  if (gameAction != nullptr) {
     getEventHandler()->handleEvent(gameAction->getActionCode());
+    ckeys.clear();
+  }
 }
 
 void Controller::addGameAction(GameAction::GameAction<int> *gameAction) {
