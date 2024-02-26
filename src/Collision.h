@@ -29,6 +29,6 @@ namespace Collision {
 
 	private:
 		void cleanup();
-
+	}
 } // namespace Collision
 #endif
