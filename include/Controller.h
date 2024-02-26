@@ -1,4 +1,4 @@
-/*
+/**
  * @file Controller.h
  * @brief Declaration of the Controller class which is responsible for
  * interaction with GameObjects and input handling

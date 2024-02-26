@@ -1,4 +1,4 @@
-/*
+/**
  * @file EventHandler.h
  * @brief Declaration of the EventHandler class responsible for holding a
  * collection of Handlers.

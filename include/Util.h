@@ -1,4 +1,4 @@
-/*
+/**
  * @file Util.h
  * @brief Defines the Util namespace, providing utility functions for various
  * purposes.

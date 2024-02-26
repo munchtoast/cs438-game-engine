@@ -1,4 +1,4 @@
-/*
+/**
  * @file UI.h
  * @brief Declaration of the UI class, a fundamental GameObject for
  * target-rendering objects

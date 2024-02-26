@@ -1,4 +1,4 @@
-/*
+/**
  * @file Handler.h
  * @brief Declaration of the Handler class which is responsible for handling
  * events within the game engine
