@@ -1,3 +1,4 @@
+#include "Animation.h"
 #include "GameWindow.h"
 #include "gtest/gtest.h"
 

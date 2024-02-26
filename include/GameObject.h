@@ -1,4 +1,4 @@
-/*
+/**
  * @file GameObject.h
  * @brief Defines the GameObject class, a fundamental component of the game
  * engine.
@@ -18,11 +18,13 @@
  * - 1.1: Add sub game objects for allowing hierarchical dependency
  * (dexter@nekocake.cafe) (2024-02-09)
  * 1.2: Add custom event handler (dexter@nekocake.cafe) (2024-02-15)
+ * 1.3: Add animation engine (dexter@nekocake.cafe) (2024-02-26)
  */
 
 #ifndef GAMEOBJECT_H
 #define GAMEOBJECT_H
 
+#include "Animation.h"
 #include "Map.h"
 #include "RectStruct.h"
 #include <SDL.h>
@@ -33,14 +35,12 @@ public:
   GameObject(float x, float y, float width, float height);
   virtual ~GameObject();
 
-  RectStruct::Rect *rectProperties;
   RectStruct::Rect *getRectProperties();
   void setRectProperties(RectStruct::Rect *ptr);
 
   Map::Map<GameObject> *getSubGameObjects();
   void addSubGameObject(GameObject *subGameObject);
 
-  SDL_Rect *getRect();
   void setX(float x);
   void setY(float y);
   void setW(float width);
@@ -51,15 +51,16 @@ public:
   float getW();
   float getH();
 
+  Animation::Animation *getAnimation();
   void handleEvent();
-  void update();
 
 protected:
   void setSubGameObjects(Map::Map<GameObject> *subGameObjects);
 
 private:
   Map::Map<GameObject> *subGameObjects;
-  SDL_Rect rect;
+  RectStruct::Rect *rectProperties;
+  Animation::Animation *animation;
 
   void cleanup();
 };

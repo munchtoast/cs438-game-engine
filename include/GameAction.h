@@ -1,4 +1,4 @@
-/*
+/**
  * @file GameAction.h
  * @brief Declaration of the GameAction class which features core component for
  * recognizing events

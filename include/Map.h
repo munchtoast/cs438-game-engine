@@ -1,4 +1,4 @@
-/*
+/**
  * @file Map.h
  * @brief Declaration of the Map class, a fundamental data structure for keeping
  * track of objects within the game state

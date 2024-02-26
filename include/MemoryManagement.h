@@ -1,4 +1,4 @@
-/*
+/**
  * @file MemoryManagement.h
  * @brief Defines the core components for handling dynamic memory. Provides safe
  * methods to ensure that memory is allocated or deallocated.

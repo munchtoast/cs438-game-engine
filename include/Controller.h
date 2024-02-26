@@ -1,4 +1,4 @@
-/*
+/**
  * @file Controller.h
  * @brief Declaration of the Controller class which is responsible for
  * interaction with GameObjects and input handling
@@ -25,8 +25,6 @@ public:
   Controller();
   ~Controller();
 
-  void setEventHandler(
-      EventHandler::EventHandler<GameObject::GameObject> *neventHandler);
   EventHandler::EventHandler<GameObject::GameObject> *getEventHandler();
   void addGameAction(GameAction::GameAction<int> *gameAction);
 

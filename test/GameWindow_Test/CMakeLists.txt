@@ -18,6 +18,7 @@ set(SOURCE_TARGET
   ${CMAKE_SOURCE_DIR}/src/GameWindow.cpp
   ${CMAKE_SOURCE_DIR}/src/GameObject.cpp
   ${CMAKE_SOURCE_DIR}/src/Util.cpp
+  ${CMAKE_SOURCE_DIR}/src/Animation.cpp
 )
 
 target_sources(test_gameWindow PRIVATE ${TEST_SOURCES} ${SOURCE_TARGET})

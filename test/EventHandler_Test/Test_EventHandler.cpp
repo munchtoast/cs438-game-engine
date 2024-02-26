@@ -1,3 +1,4 @@
+#include "Animation.h"
 #include "EventHandler.h"
 #include "GameObject.h"
 #include "Handler.h"
