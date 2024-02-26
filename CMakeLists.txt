@@ -25,6 +25,7 @@ set(SOURCES
   ${CMAKE_SOURCE_DIR}/src/Tile.cpp
   ${CMAKE_SOURCE_DIR}/src/UI.cpp
   ${CMAKE_SOURCE_DIR}/src/Controller.cpp
+  ${CMAKE_SOURCE_DIR}/src/Animation.cpp
 )
 
 include_directories(include)
@@ -48,4 +49,6 @@ if(BUILD_TESTING)
   add_subdirectory(test/UI_Test)
   add_subdirectory(test/Handler_Test)
   add_subdirectory(test/EventHandler_Test)
+  add_subdirectory(test/Controller_Test)
+  add_subdirectory(test/Animation_Test)
 endif()

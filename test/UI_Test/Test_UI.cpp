@@ -1,3 +1,4 @@
+#include "Animation.h"
 #include "UI.h"
 #include "Util.h"
 #include "gtest/gtest.h"

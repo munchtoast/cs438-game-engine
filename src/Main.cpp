@@ -1,3 +1,4 @@
+#include "Animation.h"
 #include "Controller.h"
 #include "EventHandler.h"
 #include "GameObject.h"
@@ -155,6 +156,38 @@ int main() {
 
   tile->setColorChoice(255, 0, 0, 255);
 
+  Animation::Cel *cel =
+      new (MemoryManagement::MemoryManagement::allocate<Animation::Cel>(
+          sizeof(Animation::Cel))) Animation::Cel();
+
+  Map::Map<Animation::Cel> *cels = new (
+      MemoryManagement::MemoryManagement::allocate<Map::Map<Animation::Cel>>(
+          sizeof(Map::Map<Animation::Cel>))) Map::Map<Animation::Cel>();
+
+  Map::Map<RectStruct::Rect> *ani = new (
+      MemoryManagement::MemoryManagement::allocate<Map::Map<RectStruct::Rect>>(
+          sizeof(Map::Map<RectStruct::Rect>))) Map::Map<RectStruct::Rect>();
+
+  RectStruct::Rect *block1 =
+      new (MemoryManagement::MemoryManagement::allocate<RectStruct::Rect>(
+          sizeof(RectStruct::Rect))) RectStruct::Rect;
+
+  RectStruct::Rect *block2 =
+      new (MemoryManagement::MemoryManagement::allocate<RectStruct::Rect>(
+          sizeof(RectStruct::Rect))) RectStruct::Rect;
+
+  block1->color.r = 255;
+  block2->color.r = 0;
+
+  ani->add(block1);
+  ani->add(block2);
+
+  cel->setPixels(ani);
+
+  cels->add(cel);
+
+  (tile->getAnimation())->addCels(cels);
+
   bool quit = false;
   SDL_Event e;
 
@@ -167,17 +200,7 @@ int main() {
       }
     }
 
-    gameWindow.clearScreen();
-
-    if (std::abs(tile->getX()) <= std::abs(camera->getW()) &&
-        std::abs(tile->getY()) <= std::abs(camera->getH())) {
-
-      gameWindow.drawRect(tile->getX() - camera->getX(),
-                          tile->getY() - camera->getY(), tile->getW(),
-                          tile->getH(), tile->getColor());
-    }
-
-    gameWindow.present();
+    gameWindow.render(gameObjectMap, camera);
   }
   SDL_Quit();
 

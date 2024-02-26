@@ -25,8 +25,6 @@ public:
   Controller();
   ~Controller();
 
-  void setEventHandler(
-      EventHandler::EventHandler<GameObject::GameObject> *neventHandler);
   EventHandler::EventHandler<GameObject::GameObject> *getEventHandler();
   void addGameAction(GameAction::GameAction<int> *gameAction);
 

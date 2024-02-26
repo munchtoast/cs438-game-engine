@@ -16,9 +16,9 @@ set(TEST_SOURCES "Test_Controller.cpp")
 # Add source targets
 set(SOURCE_TARGET 
   ${CMAKE_SOURCE_DIR}/src/Controller.cpp
-  ${CMAKE_SOURCE_DIR}/src/EventHandler.cpp
-  ${CMAKE_SOURCE_DIR}/src/Map.cpp
   ${CMAKE_SOURCE_DIR}/src/Util.cpp
+  ${CMAKE_SOURCE_DIR}/src/GameObject.cpp
+  ${CMAKE_SOURCE_DIR}/src/Animation.cpp
 )
 
 target_sources(test_controller PRIVATE ${TEST_SOURCES} ${SOURCE_TARGET})

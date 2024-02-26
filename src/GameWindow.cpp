@@ -1,9 +1,12 @@
-// File: GameWindow.cpp
-
 #include "GameWindow.h"
+#include "Animation.h"
 #include "GameObject.h"
+#include "Map.h"
+#include "MemoryManagement.h"
 #include <SDL.h>
+#include <chrono>
 #include <spdlog/spdlog.h>
+#include <thread>
 
 namespace GameWindow {
 /**
@@ -67,6 +70,81 @@ void GameWindow::drawRect(int x, int y, int width, int height,
 }
 
 void GameWindow::present() { SDL_RenderPresent(renderer); }
+
+void GameWindow::render(Map::Map<GameObject::GameObject> *gameObjects,
+                        GameObject::GameObject *camera) {
+  Map::Map<Animation::Cel> *cels = nullptr;
+  Animation::Animation *animation;
+  GameObject::GameObject **mem = gameObjects->getMap();
+
+  GameWindow::clearScreen();
+
+  /**
+   * @brief Gets all GameObjects, and then the Animation Engine determines which
+   * Cels to render. Smooths out the CPU cycles by introducing a thread-safe
+   * sleep.
+   *
+   */
+  for (size_t i = 0; i < gameObjects->getSize(); i++) {
+    if (isRenderable(mem[i], camera)) {
+      animation = mem[i]->getAnimation();
+      cels = animation->getCelsToRender();
+
+      if (!Util::Util::checkIfNullPtr(cels)) {
+        renderCel(cels, camera, mem[i]);
+        std::this_thread::sleep_for(std::chrono::milliseconds(16));
+      }
+    }
+  }
+
+  GameWindow::present();
+}
+
+/**
+ * @brief Draws all animation cels obtained by getting their individual pixel
+ * mappings. Then, draws all animation cels pixel by pixel
+ *
+ * @param cels - Map of all cels to animate
+ * @param gameObject - GameObject to be rendered onto the screen
+ * @param camera - GameObject as the "Ground Truth" to render relative to the
+ * screen
+ */
+void GameWindow::renderCel(Map::Map<Animation::Cel> *cels,
+                           GameObject::GameObject *camera,
+                           GameObject::GameObject *gameObject) {
+  Animation::Cel **memCel;
+  RectStruct::Rect **memPixel;
+  RectStruct::Rect *pixel;
+
+  for (size_t i = 0; i < cels->getSize(); i++) {
+    memCel = cels->getMap();
+    memPixel = memCel[i]->getPixels()->getMap();
+
+    for (size_t j = 0; j < memCel[i]->getPixels()->getSize(); j++) {
+      GameWindow::drawRect(
+          (gameObject->getX() - memPixel[j]->position.x) - camera->getX(),
+          (gameObject->getY() - memPixel[j]->position.y) - camera->getY(),
+          gameObject->getW() - memPixel[j]->size.width,
+          gameObject->getH() - memPixel[j]->size.height,
+          static_cast<RectStruct::Color *>(&memPixel[j]->color));
+    }
+  }
+}
+
+/**
+ * @brief Given the Camera GameObject, this function determines if the
+ * GameObject is on the screen with respect to the Camera GameObject
+ *
+ * @param gameObject - GameObject to determine if rendering is possible
+ * @param camera - GameObject that is defined as the "Ground Truth" of possible
+ * rendering onto the screen
+ *
+ */
+bool GameWindow::isRenderable(GameObject::GameObject *gameObject,
+                              GameObject::GameObject *camera) {
+  return (std::abs(gameObject->getX()) <= std::abs(camera->getW()) &&
+          std::abs(gameObject->getY()) <= std::abs(camera->getH()));
+}
 
 void GameWindow::cleanup() {
   SDL_DestroyWindow(window);

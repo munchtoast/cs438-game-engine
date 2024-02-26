@@ -1,4 +1,5 @@
 #include "GameObject.h"
+#include "Animation.h"
 #include "Map.h"
 #include "MemoryManagement.h"
 #include "RectStruct.h"
@@ -24,6 +25,10 @@ GameObject::GameObject(float x, float y, float width, float height) {
   GameObject::setSubGameObjects(
       new (MemoryManagement::MemoryManagement::allocate<Map::Map<GameObject>>(
           sizeof(Map::Map<GameObject>))) Map::Map<GameObject>());
+
+  animation =
+      new (MemoryManagement::MemoryManagement::allocate<Animation::Animation>(
+          sizeof(Animation::Animation))) Animation::Animation();
 
   GameObject::setX(x);
   GameObject::setY(y);
@@ -67,6 +72,12 @@ void GameObject::addSubGameObject(GameObject *subGameObject) {
   getSubGameObjects()->add(subGameObject);
 }
 
+Animation::Animation *GameObject::getAnimation() { return animation; }
+
+/**
+ * @note This is expected to be handled by a Handler instance exclusively
+ *
+ */
 void GameObject::handleEvent() { spdlog::info("GameObject handled an event"); }
 
 void GameObject::setSubGameObjects(Map::Map<GameObject> *nSubGameObjects) {
@@ -82,5 +93,9 @@ void GameObject::cleanup() {
   GameObject::setSubGameObjects(static_cast<Map::Map<GameObject> *>(
       MemoryManagement::MemoryManagement::deallocate<Map::Map<GameObject>>(
           GameObject::getSubGameObjects())));
+
+  animation = static_cast<Animation::Animation *>(
+      MemoryManagement::MemoryManagement::deallocate<Animation::Animation>(
+          animation));
 }
 } // namespace GameObject

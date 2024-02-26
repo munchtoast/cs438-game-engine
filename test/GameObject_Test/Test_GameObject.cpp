@@ -1,3 +1,4 @@
+#include "Animation.h"
 #include "GameObject.h"
 #include "MemoryManagement.h"
 #include "Util.h"

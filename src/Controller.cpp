@@ -19,17 +19,13 @@ Controller::Controller() {
 
 Controller::~Controller() { Controller::cleanup(); }
 
-void Controller::setEventHandler(
-    EventHandler::EventHandler<GameObject::GameObject> *neventHandler) {
-  eventHandler = neventHandler;
-}
-
-/*
+/**
  * @brief The purpose of this function is to compare all of the key inputs
  *within the map data structure. Apply any GameAction::GameAction<int>
  *applicable based on the inputs received
  *
- **/
+ * @param e - Address of event captured in a cycle
+ */
 void Controller::update(SDL_Event &e) {
   if (e.type == SDL_EVENT_KEY_DOWN) {
     auto k = std::find(getCKeys().begin(), getCKeys().end(), e.key.keysym.sym);
@@ -43,7 +39,7 @@ void Controller::update(SDL_Event &e) {
   GameAction::GameAction<int> *gameAction =
       Controller::getApplicableGameAction(ckeys);
 
-  /*
+  /**
    * @brief An applicable game action is recognized given from user input. Go
    *ahead and run the handler associated with the action code. Then make sure to
    *clear all keys to receive new inputs from user.
