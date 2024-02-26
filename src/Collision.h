@@ -1,20 +1,15 @@
 /*
  * @file Collision.h
- * @brief Defines the GameObject class, a fundamental component of the game
- * engine.
+ * @brief Defines the Collision class, a subcomponent of the physics engine
  *
- * The GameObject class represents a basic object within the game engine. It is
- * equipped with rectProperties, essential for rendering the object.
- * Additionally, it maintains the internal location of the object before
- * projection through the renderer.
+ * The Collision class detects collisions between two game objects
+ * it makes static calls to detectCollission and handleCollision.
+ * This will change the position of the object based on the collision.
  *
- * @note Ensure that rectProperties are properly configured for rendering.
  *
- * @remark This class serves as a foundational element for constructing
- * interactive elements in the game.
  *
  * @version
- * - 1.0: Initial implementation (dexter@nekocake.cafe) (2024-02-01)
+ * - 1.0: Initial implementation (dexter@nekocake.cafe) (2024-02-26)
  */
 
 #ifndef COLLISION_H
@@ -29,10 +24,8 @@ namespace Collision {
 		Collision();
 		virtual ~Collision();
 
-
-		static bool detectCollision(GameObject *obj1, GameObject *obj2);
-
-		static void handleCollision(GameObject *obj1, GameObject *obj2);
+		static bool detectCollision(GameObject* obj1, GameObject* obj2);
+		static void handleCollision(GameObject* obj1, GameObject* obj2);
 
 	private:
 		void cleanup();
