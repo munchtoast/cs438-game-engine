@@ -13,12 +13,12 @@ Collision::~Collision() { Collision::cleanup(); }
 
 bool Collision::detectCollision(GameObject *obj1, GameObject *obj2) {
   // Check for collision along x-axis
-  bool xCollision =
-      obj1.getRect()->x < obj2.getRect()->x + obj2.getRect()->w && obj1.getRect()->x + obj1.getRect()->w > obj2.getRect()->x;
+  bool xCollision = obj1.getRect()->x < obj2.getRect()->x + obj2.getRect()->w &&
+                    obj1.getRect()->x + obj1.getRect()->w > obj2.getRect()->x;
 
   // Check for collision along y-axis
-  bool yCollision =
-      obj1.getRect()->y < obj2.getRect()->y + obj2.getRect()->h && obj1.getRect()->y + obj1.getRect()->h > obj2.getRect()->y;
+  bool yCollision = obj1.getRect()->y < obj2.getRect()->y + obj2.getRect()->h &&
+                    obj1.getRect()->y + obj1.getRect()->h > obj2.getRect()->y;
 
   return xCollision && yCollision;
 }
