@@ -1,4 +1,4 @@
-/*
+/**
  * @file Tile.h
  * @brief Declaration of the Tile class, a fundamental GameObject in the TileMap
  * system.

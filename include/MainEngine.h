@@ -1,4 +1,4 @@
-/*
+/**
  * @file MainEngine.h
  * @brief Defines the MainEngine class, a wrapper for integrating Python
  * scripting language with the game engine.

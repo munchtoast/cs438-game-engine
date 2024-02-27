@@ -1,4 +1,5 @@
 #include "UI.h"
+#include "MemoryManagement.h"
 #include "Util.h"
 #include <SDL.h>
 
@@ -15,8 +16,18 @@ void UI::move(int deltaX, int deltaY) {
 
 void UI::apply(SDL_Renderer *renderer) {
   if (!Util::Util::checkIfNullPtr(renderer)) {
+    SDL_Rect *rect =
+        new (MemoryManagement::MemoryManagement::allocate<SDL_Rect>(
+            sizeof(SDL_Rect))) SDL_Rect;
 
-    SDL_SetRenderViewport(renderer, (SDL_Rect *)UI::getRect());
+    rect->x = getRectProperties()->position.x;
+    rect->y = getRectProperties()->position.y;
+    rect->w = getRectProperties()->size.width;
+    rect->h = getRectProperties()->size.height;
+
+    // This is a temporary measure and should be removed in the future...
+
+    SDL_SetRenderViewport(renderer, rect);
   }
 }
 

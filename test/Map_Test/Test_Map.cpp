@@ -7,10 +7,12 @@
 
 class MapTest : public ::testing::Test {
 protected:
-  Map::Map<GameObject::GameObject> *gameObjectMap =
-      new (MemoryManagement::MemoryManagement::allocate<
-           Map::Map<GameObject::GameObject> *>(sizeof(GameObject::GameObject)))
-          Map::Map<GameObject::GameObject>();
+  Map::Map<GameObject::GameObject> *gameObjectMap;
+  void SetUp() override {
+    gameObjectMap = new (MemoryManagement::MemoryManagement::allocate<
+                         Map::Map<GameObject::GameObject> *>(
+        sizeof(GameObject::GameObject))) Map::Map<GameObject::GameObject>();
+  }
 };
 
 TEST_F(MapTest, CheckIfMemAllocSuccess) {

@@ -1,4 +1,4 @@
-/*
+/**
  * @file RectStruct.h
  * @brief Defines the RectStruct namespace, encapsulating essential structs for
  * geometry and color representation.
@@ -15,6 +15,8 @@
  *
  * @version
  * - 1.0: Initial implementation (dexter@nekocake.cafe) (2024-02-01)
+ * - 1.1: Make Rect object contain a color to represent a pixel
+ * (dexter@nekocake.cafe) (2024-02-26)
  */
 
 #ifndef RECTSTRUCT_H
@@ -34,16 +36,18 @@ typedef struct {
 } Size;
 
 typedef struct {
-  Position position;
-  Size size;
-} Rect;
-
-typedef struct {
   Uint8 r;
   Uint8 g;
   Uint8 b;
   Uint8 a;
 } Color;
+
+typedef struct {
+  Position position;
+  Size size;
+  Color color;
+} Rect;
+
 } // namespace RectStruct
 
 #endif

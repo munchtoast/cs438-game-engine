@@ -1,4 +1,4 @@
-/*
+/**
  * @file GameWindow.h
  * @brief Defines the GameWindow class, responsible for creating the game window
  * and renderer engine.
@@ -15,6 +15,9 @@
  *
  * @version
  * - 1.0: Initial implementation (dexter@nekocake.cafe) (2024-02-01)
+ * - 1.1: Add bit by bit rendering (dexter@nekocake.cafe) (2024-02-26)
+ * - 1.2: Add animation support for rendering (dexter@nekocake.cafe)
+ * (2024-02-26)
  */
 
 #ifndef GAME_WINDOW_H
@@ -24,6 +27,9 @@ namespace GameObject {
 class GameObject;
 }
 
+#include "GameObject.h"
+#include "Map.h"
+#include "RectStruct.h"
 #include <SDL.h>
 
 namespace GameWindow {
@@ -38,12 +44,19 @@ public:
 
   void clearScreen();
   void setRenderDrawColor(Uint8 r, Uint8 g, Uint8 b, Uint8 a);
-  void drawRect(SDL_Rect *rect);
+  void draw(int x, int y, RectStruct::Color *c);
+  void drawRect(int x, int y, int width, int height, RectStruct::Color *c);
   void present();
+  void render(Map::Map<GameObject::GameObject> *gameObjects,
+              GameObject::GameObject *camera);
 
 private:
   SDL_Renderer *renderer;
   SDL_Window *window;
+  bool isRenderable(GameObject::GameObject *gameObject,
+                    GameObject::GameObject *camera);
+  void renderCel(Map::Map<Animation::Cel> *cels, GameObject::GameObject *camera,
+                 GameObject::GameObject *gameObject);
   void cleanup();
 };
 } // namespace GameWindow
