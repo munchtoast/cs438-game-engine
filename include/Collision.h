@@ -7,9 +7,8 @@
  * This will change the position of the object based on the collision.
  *
  *
- *
  * @version
- * - 1.0: Initial implementation (dexter@nekocake.cafe) (2024-02-26)
+ * - 1.0: Initial implementation (jyang@nekocake.cafe) (2024-02-26)
  */
 
 #ifndef COLLISION_H
@@ -29,6 +28,6 @@ public:
 
 private:
   void cleanup();
-}
+
 } // namespace Collision
 #endif
