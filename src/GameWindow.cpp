@@ -163,7 +163,10 @@ bool GameWindow::isRenderable(GameObject::GameObject *gameObject,
 }
 
 void GameWindow::cleanup() {
-  SDL_DestroyWindow(window);
-  SDL_DestroyRenderer(renderer);
+  if (!Util::Util::checkIfNullPtr(window))
+    SDL_DestroyWindow(window);
+
+  if (!Util::Util::checkIfNullPtr(renderer))
+    SDL_DestroyRenderer(renderer);
 }
 } // namespace GameWindow

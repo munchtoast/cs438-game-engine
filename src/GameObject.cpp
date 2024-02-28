@@ -30,6 +30,10 @@ GameObject::GameObject(float x, float y, float width, float height) {
       new (MemoryManagement::MemoryManagement::allocate<Animation::Animation>(
           sizeof(Animation::Animation))) Animation::Animation();
 
+  Util::Util::checkIfMemAllocSuccess(getRectProperties());
+  Util::Util::checkIfMemAllocSuccess(getSubGameObjects());
+  Util::Util::checkIfMemAllocSuccess(getAnimation());
+
   GameObject::setX(x);
   GameObject::setY(y);
   GameObject::setW(width);
@@ -85,17 +89,22 @@ void GameObject::setSubGameObjects(Map::Map<GameObject> *nSubGameObjects) {
 }
 
 void GameObject::cleanup() {
-  GameObject::setRectProperties(static_cast<RectStruct::Rect *>(
-      MemoryManagement::MemoryManagement::deallocate<RectStruct::Rect>(
-          GameObject::getRectProperties())));
+  if (!Util::Util::checkIfNullPtr(getRectProperties()))
+    GameObject::setRectProperties(static_cast<RectStruct::Rect *>(
+        MemoryManagement::MemoryManagement::deallocate<RectStruct::Rect>(
+            GameObject::getRectProperties())));
   Util::Util::checkIfMemFreeSuccess(GameObject::getRectProperties());
 
-  GameObject::setSubGameObjects(static_cast<Map::Map<GameObject> *>(
-      MemoryManagement::MemoryManagement::deallocate<Map::Map<GameObject>>(
-          GameObject::getSubGameObjects())));
+  if (!Util::Util::checkIfNullPtr(getSubGameObjects()))
+    GameObject::setSubGameObjects(static_cast<Map::Map<GameObject> *>(
+        MemoryManagement::MemoryManagement::deallocate<Map::Map<GameObject>>(
+            GameObject::getSubGameObjects())));
+  Util::Util::checkIfMemFreeSuccess(GameObject::getSubGameObjects());
 
-  animation = static_cast<Animation::Animation *>(
-      MemoryManagement::MemoryManagement::deallocate<Animation::Animation>(
-          animation));
+  if (!Util::Util::checkIfNullPtr(getAnimation()))
+    animation = static_cast<Animation::Animation *>(
+        MemoryManagement::MemoryManagement::deallocate<Animation::Animation>(
+            animation));
+  Util::Util::checkIfMemFreeSuccess(getAnimation());
 }
 } // namespace GameObject

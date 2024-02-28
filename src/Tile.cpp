@@ -22,6 +22,7 @@ Tile::Tile(float x, float y, float width, float height)
       MemoryManagement::MemoryManagement::allocate<RectStruct::Color>(
           sizeof(RectStruct::Color)));
 
+  Util::Util::checkIfMemAllocSuccess(getColor());
   Tile::setColorChoice(255, 255, 255, 255);
 }
 
@@ -39,9 +40,10 @@ void Tile::setColorChoice(Uint8 r, Uint8 g, Uint8 b, Uint8 a) {
 }
 
 void Tile::cleanup() {
-  Tile::setColor(static_cast<RectStruct::Color *>(
-      MemoryManagement::MemoryManagement::deallocate<RectStruct::Color>(
-          getColor())));
+  if (!Util::Util::checkIfNullPtr(getColor()))
+    Tile::setColor(static_cast<RectStruct::Color *>(
+        MemoryManagement::MemoryManagement::deallocate<RectStruct::Color>(
+            getColor())));
   Util::Util::checkIfMemFreeSuccess(Tile::getColor());
 }
 } // namespace Tile
