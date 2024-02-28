@@ -28,6 +28,7 @@ void Cel::cleanup() {
     pixels = static_cast<Map::Map<RectStruct::Rect> *>(
         MemoryManagement::MemoryManagement::deallocate<
             Map::Map<RectStruct::Rect>>(pixels));
+  Util::Util::checkIfMemFreeSuccess(getPixels());
 }
 
 Animation::Animation() {
@@ -35,6 +36,7 @@ Animation::Animation() {
       MemoryManagement::MemoryManagement::allocate<Map::Map<Map::Map<Cel>>>(
           sizeof(Map::Map<Map::Map<Cel>>))) Map::Map<Map::Map<Cel>>();
 
+  Util::Util::checkIfMemAllocSuccess(animationList);
   state = 0;
 }
 
@@ -65,5 +67,6 @@ void Animation::cleanup() {
     animationList = static_cast<Map::Map<Map::Map<Cel>> *>(
         MemoryManagement::MemoryManagement::deallocate<Map::Map<Map::Map<Cel>>>(
             animationList));
+  Util::Util::checkIfMemFreeSuccess(animationList);
 }
 } // namespace Animation

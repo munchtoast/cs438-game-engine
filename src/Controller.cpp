@@ -15,6 +15,9 @@ Controller::Controller() {
                       EventHandler::EventHandler<GameObject::GameObject>>(
       sizeof(EventHandler::EventHandler<GameObject::GameObject>)))
       EventHandler::EventHandler<GameObject::GameObject>();
+
+  Util::Util::checkIfMemAllocSuccess(getGameActions());
+  Util::Util::checkIfMemAllocSuccess(getEventHandler());
 }
 
 Controller::~Controller() { Controller::cleanup(); }
@@ -95,14 +98,18 @@ void Controller::removeCKeys(int key) {
 }
 
 void Controller::cleanup() {
-  gameActions = static_cast<Map::Map<GameAction::GameAction<int>> *>(
-      MemoryManagement::MemoryManagement::deallocate<
-          Map::Map<GameAction::GameAction<int>>>(getGameActions()));
+  if (!Util::Util::checkIfNullPtr(getGameActions()))
+    gameActions = static_cast<Map::Map<GameAction::GameAction<int>> *>(
+        MemoryManagement::MemoryManagement::deallocate<
+            Map::Map<GameAction::GameAction<int>>>(getGameActions()));
+  Util::Util::checkIfMemFreeSuccess(getGameActions());
 
-  eventHandler =
-      static_cast<EventHandler::EventHandler<GameObject::GameObject> *>(
-          MemoryManagement::MemoryManagement::deallocate<
-              EventHandler::EventHandler<GameObject::GameObject>>(
-              getEventHandler()));
+  if (!Util::Util::checkIfNullPtr(getEventHandler()))
+    eventHandler =
+        static_cast<EventHandler::EventHandler<GameObject::GameObject> *>(
+            MemoryManagement::MemoryManagement::deallocate<
+                EventHandler::EventHandler<GameObject::GameObject>>(
+                getEventHandler()));
+  Util::Util::checkIfMemFreeSuccess(getEventHandler());
 }
 } // namespace Controller
