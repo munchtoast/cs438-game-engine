@@ -177,7 +177,7 @@ int main() {
           sizeof(RectStruct::Rect))) RectStruct::Rect;
 
   block1->color.r = 255;
-  block2->color.r = 0;
+  block2->color.b = 255;
 
   ani->add(block1);
   ani->add(block2);

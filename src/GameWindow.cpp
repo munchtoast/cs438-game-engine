@@ -62,11 +62,9 @@ void GameWindow::draw(int x, int y, RectStruct::Color *c) {
 
 void GameWindow::drawRect(int x, int y, int width, int height,
                           RectStruct::Color *c) {
-  for (int i = x; i < x + width; i++) {
-    for (int j = y; j < y + height; j++) {
+  for (int i = x; i < x + width; i++)
+    for (int j = y; j < y + height; j++)
       draw(i, j, c);
-    }
-  }
 }
 
 void GameWindow::present() { SDL_RenderPresent(renderer); }
@@ -74,8 +72,11 @@ void GameWindow::present() { SDL_RenderPresent(renderer); }
 void GameWindow::render(Map::Map<GameObject::GameObject> *gameObjects,
                         GameObject::GameObject *camera) {
   Map::Map<Animation::Cel> *cels = nullptr;
-  Animation::Animation *animation;
+  Animation::Animation *animation = nullptr;
   GameObject::GameObject **mem = gameObjects->getMap();
+
+  if (Util::Util::checkIfNullPtr(mem))
+    return;
 
   GameWindow::clearScreen();
 
@@ -88,6 +89,10 @@ void GameWindow::render(Map::Map<GameObject::GameObject> *gameObjects,
   for (size_t i = 0; i < gameObjects->getSize(); i++) {
     if (isRenderable(mem[i], camera)) {
       animation = mem[i]->getAnimation();
+
+      if (Util::Util::checkIfNullPtr(mem[i]))
+        continue;
+
       cels = animation->getCelsToRender();
 
       if (!Util::Util::checkIfNullPtr(cels)) {
@@ -112,15 +117,26 @@ void GameWindow::render(Map::Map<GameObject::GameObject> *gameObjects,
 void GameWindow::renderCel(Map::Map<Animation::Cel> *cels,
                            GameObject::GameObject *camera,
                            GameObject::GameObject *gameObject) {
-  Animation::Cel **memCel;
-  RectStruct::Rect **memPixel;
-  RectStruct::Rect *pixel;
+  Animation::Cel **memCel = nullptr;
+  RectStruct::Rect **memPixel = nullptr;
+
+  memCel = cels->getMap();
+  if (Util::Util::checkIfNullPtr(memCel))
+    return;
 
   for (size_t i = 0; i < cels->getSize(); i++) {
-    memCel = cels->getMap();
+    if (Util::Util::checkIfNullPtr(memCel[i]))
+      continue;
+
     memPixel = memCel[i]->getPixels()->getMap();
 
+    if (Util::Util::checkIfNullPtr(memPixel))
+      continue;
+
     for (size_t j = 0; j < memCel[i]->getPixels()->getSize(); j++) {
+      if (Util::Util::checkIfNullPtr(memPixel[j]))
+        break;
+
       GameWindow::drawRect(
           (gameObject->getX() - memPixel[j]->position.x) - camera->getX(),
           (gameObject->getY() - memPixel[j]->position.y) - camera->getY(),
