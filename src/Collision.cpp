@@ -7,6 +7,10 @@ namespace Collision {
  *
  */
 
+Collision::Collision() {}
+
+Collision::~Collision() { Collision::cleanup(); }
+
 bool Collision::detectCollision(GameObject *obj1, GameObject *obj2) {
   // Check for collision along x-axis
   bool xCollision = obj1->getX() < obj2->getX() + obj2->getW() &&
@@ -33,4 +37,7 @@ void Collision::handleCollision(GameObject *obj1, GameObject *obj2) {
       }
         }
 }
+
+void Collision::cleanup() { return; }
+
 } // namespace Collision
