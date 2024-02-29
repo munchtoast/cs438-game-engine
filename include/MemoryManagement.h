@@ -26,6 +26,7 @@
 #include "Util.h"
 #include "mimalloc.h"
 #include <cstddef>
+#include <stdexcept>
 
 namespace MemoryManagement {
 class MemoryManagement {

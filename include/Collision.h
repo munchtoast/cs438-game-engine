@@ -20,14 +20,8 @@
 namespace Collision {
 class Collision {
 public:
-  Collision();
-  virtual ~Collision();
-
   static bool detectCollision(GameObject *obj1, GameObject *obj2);
   static void handleCollision(GameObject *obj1, GameObject *obj2);
-
-private:
-  void cleanup();
-
+}
 } // namespace Collision
 #endif
