@@ -3,6 +3,7 @@
 #include "GameObject.h"
 #include "Map.h"
 #include "spdlog/spdlog.h"
+#include <algorithm>
 
 namespace Controller {
 Controller::Controller() {
