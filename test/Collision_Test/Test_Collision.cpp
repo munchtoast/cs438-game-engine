@@ -1,6 +1,6 @@
 #include "Animation.h"
-#include "GameObject.h"
 #include "Collision.h"
+#include "GameObject.h"
 #include "MemoryManagement.h"
 #include "Util.h"
 #include "gtest/gtest.h"
@@ -36,7 +36,7 @@ TEST_F(CollisionTest, CheckRectStructExists) {
 }
 
 TEST_F(CollisionTest, DetectCollision) {
-  ASSERT_TRUE(Collision::Collision::detectCollision(gameObject,gameObject2));
+  ASSERT_TRUE(Collision::Collision::detectCollision(gameObject, gameObject2));
 }
 
 TEST_F(CollisionTest, HandleCollision) {
