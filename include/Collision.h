@@ -18,10 +18,10 @@
 #include <SDL.h>
 
 namespace Collision {
-class Collision {
-public:
-  static bool detectCollision(GameObject *obj1, GameObject *obj2);
-  static void handleCollision(GameObject *obj1, GameObject *obj2);
-}
+	class Collision {
+	public:
+		static bool detectCollision(GameObject::GameObject *obj1, GameObject::GameObject *obj2);
+		static void handleCollision(GameObject::GameObject *obj1, GameObject::GameObject *obj2);
+	};
 } // namespace Collision
 #endif
