@@ -30,12 +30,12 @@ int main() {
   GameObject::GameObject *screen =
       new (MemoryManagement::MemoryManagement::allocate<GameObject::GameObject>(
           sizeof(GameObject::GameObject)))
-          GameObject::GameObject(0, 0, windowWidth, windowHeight);
+          GameObject::GameObject(0, 0, windowWidth, windowHeight, 0);
 
   GameObject::GameObject *camera =
       new (MemoryManagement::MemoryManagement::allocate<GameObject::GameObject>(
           sizeof(GameObject::GameObject)))
-          GameObject::GameObject(0, 0, windowWidth, windowHeight);
+          GameObject::GameObject(0, 0, windowWidth, windowHeight, 0);
 
   Tile::Tile *tile =
       new (MemoryManagement::MemoryManagement::allocate<Tile::Tile>(

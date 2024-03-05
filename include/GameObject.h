@@ -32,7 +32,7 @@
 namespace GameObject {
 class GameObject {
 public:
-  GameObject(float x, float y, float width, float height);
+  GameObject(float x, float y, float width, float height, float angle);
   virtual ~GameObject();
 
   RectStruct::Rect *getRectProperties();
@@ -45,11 +45,14 @@ public:
   void setY(float y);
   void setW(float width);
   void setH(float height);
+  void setA(float angle);
 
   float getX();
   float getY();
   float getW();
   float getH();
+  float getA();
+  float angle;
 
   Animation::Animation *getAnimation();
   void handleEvent();

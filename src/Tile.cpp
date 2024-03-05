@@ -17,7 +17,7 @@ namespace Tile {
  * @param height - Size of the GameObject's height
  */
 Tile::Tile(float x, float y, float width, float height)
-    : GameObject(x, y, width, height) {
+    : GameObject(x, y, width, height, angle) {
   color = static_cast<RectStruct::Color *>(
       MemoryManagement::MemoryManagement::allocate<RectStruct::Color>(
           sizeof(RectStruct::Color)));

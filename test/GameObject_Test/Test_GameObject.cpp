@@ -11,7 +11,7 @@ protected:
     gameObject = new (
         MemoryManagement::MemoryManagement::allocate<GameObject::GameObject>(
             sizeof(GameObject::GameObject)))
-        GameObject::GameObject(100, 100, 100, 100);
+        GameObject::GameObject(100, 100, 100, 100, 0);
   }
 
   void TearDown() override {
@@ -30,9 +30,11 @@ TEST_F(GameObjectTest, CheckRectUpdateStruct) {
   gameObject->setY(300);
   gameObject->setW(150);
   gameObject->setH(50);
+  gameObject->setA(30);
 
   ASSERT_TRUE(gameObject->getRectProperties()->position.x == 200);
   ASSERT_TRUE(gameObject->getRectProperties()->position.y == 300);
   ASSERT_TRUE(gameObject->getRectProperties()->size.width == 150);
   ASSERT_TRUE(gameObject->getRectProperties()->size.height == 50);
+  ASSERT_TRUE(gameObject->angle == 30);
 }

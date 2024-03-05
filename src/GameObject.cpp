@@ -16,8 +16,10 @@ namespace GameObject {
  * @param y - Y-Position of GameObject
  * @param w - Size of the GameObject's width
  * @param h - Size of the GameObject's height
+ * @param a = angle at which the GameObject is rotated in degrees
  */
-GameObject::GameObject(float x, float y, float width, float height) {
+GameObject::GameObject(float x, float y, float width, float height,
+                       float angle) {
   GameObject::setRectProperties(static_cast<RectStruct::Rect *>(
       MemoryManagement::MemoryManagement::allocate<RectStruct::Rect>(
           sizeof(RectStruct::Rect))));
@@ -38,6 +40,7 @@ GameObject::GameObject(float x, float y, float width, float height) {
   GameObject::setY(y);
   GameObject::setW(width);
   GameObject::setH(height);
+  GameObject::angle = angle;
 }
 
 GameObject::~GameObject() { GameObject::cleanup(); }
@@ -54,6 +57,7 @@ void GameObject::setW(float width) {
 void GameObject::setH(float height) {
   GameObject::getRectProperties()->size.height = height;
 }
+void GameObject::setA(float angle) { GameObject::angle = angle; }
 
 float GameObject::getX() { return GameObject::getRectProperties()->position.x; }
 float GameObject::getY() { return GameObject::getRectProperties()->position.y; }
@@ -61,6 +65,7 @@ float GameObject::getW() { return GameObject::getRectProperties()->size.width; }
 float GameObject::getH() {
   return GameObject::getRectProperties()->size.height;
 }
+float GameObject::getA() { return GameObject::angle; }
 
 RectStruct::Rect *GameObject::getRectProperties() {
   return GameObject::rectProperties;

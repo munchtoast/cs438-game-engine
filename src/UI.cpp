@@ -5,7 +5,7 @@
 
 namespace UI {
 UI::UI(float x, float y, float width, float height)
-    : GameObject(x, y, width, height) {}
+    : GameObject(x, y, width, height, angle) {}
 
 UI::~UI() { UI::cleanup(); }
 
