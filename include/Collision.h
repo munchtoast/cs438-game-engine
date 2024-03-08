@@ -9,21 +9,22 @@
  *
  * @version
  * - 1.0: Initial implementation (jyang@nekocake.cafe) (2024-02-26)
+ * - 1.1: Detection for rotated boxes (jyang@nekocake.cafe) (2024-03-03)
  */
 
 #ifndef COLLISION_H
 #define COLLISION_H
 
-#include <GameObject.h>
+#include <BoxRigidBody.h>
 #include <SDL.h>
 
 namespace Collision {
 class Collision {
 public:
-  static bool detectCollision(GameObject::GameObject *obj1,
-                              GameObject::GameObject *obj2);
-  static void handleCollision(GameObject::GameObject *obj1,
-                              GameObject::GameObject *obj2);
+  static bool detectCollision(BoxRigidBody::BoxRigidBody *obj1,
+                              BoxRigidBody::BoxRigidBody *obj2);
+  static void handleCollision(BoxRigidBody::BoxRigidBody *obj1,
+                              BoxRigidBody::BoxRigidBody *obj2);
 };
 } // namespace Collision
 #endif

@@ -15,9 +15,8 @@ set(TEST_SOURCES "Test_Collision.cpp")
 
 # Add source targets
 set(SOURCE_TARGET 
-  ${CMAKE_SOURCE_DIR}/src/GameObject.cpp
+  ${CMAKE_SOURCE_DIR}/src/BoxRigidBody.cpp
   ${CMAKE_SOURCE_DIR}/src/Util.cpp
-  ${CMAKE_SOURCE_DIR}/src/Animation.cpp
   ${CMAKE_SOURCE_DIR}/src/Collision.cpp
 )
 

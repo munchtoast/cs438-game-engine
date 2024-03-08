@@ -25,6 +25,7 @@
 #define GAMEOBJECT_H
 
 #include "Animation.h"
+#include "BoxRigidBody.h"
 #include "Map.h"
 #include "RectStruct.h"
 #include <SDL.h>
@@ -40,6 +41,9 @@ public:
 
   Map::Map<GameObject> *getSubGameObjects();
   void addSubGameObject(GameObject *subGameObject);
+
+  void setBodyProperties(BoxRigidBody::BoxRigidBody *rigidbody);
+  BoxRigidBody::BoxRigidBody *getBodyProperties();
 
   void setX(float x);
   void setY(float y);
@@ -62,6 +66,7 @@ protected:
 
 private:
   Map::Map<GameObject> *subGameObjects;
+  BoxRigidBody::BoxRigidBody *bodyProperties;
   RectStruct::Rect *rectProperties;
   Animation::Animation *animation;
 

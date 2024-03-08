@@ -1,5 +1,6 @@
 #include "GameObject.h"
 #include "Animation.h"
+#include "BoxRigidBody.h"
 #include "Map.h"
 #include "MemoryManagement.h"
 #include "RectStruct.h"
@@ -41,6 +42,7 @@ GameObject::GameObject(float x, float y, float width, float height,
   GameObject::setW(width);
   GameObject::setH(height);
   GameObject::angle = angle;
+  GameObject::setBodyProperties(nullptr);
 }
 
 GameObject::~GameObject() { GameObject::cleanup(); }
@@ -79,6 +81,14 @@ Map::Map<GameObject> *GameObject::getSubGameObjects() { return subGameObjects; }
 
 void GameObject::addSubGameObject(GameObject *subGameObject) {
   getSubGameObjects()->add(subGameObject);
+}
+
+void GameObject::setBodyProperties(BoxRigidBody::BoxRigidBody *rigidbody) {
+  GameObject::bodyProperties = rigidbody;
+}
+
+BoxRigidBody::BoxRigidBody *GameObject::getBodyProperties() {
+  return GameObject::bodyProperties;
 }
 
 Animation::Animation *GameObject::getAnimation() { return animation; }

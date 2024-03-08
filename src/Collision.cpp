@@ -1,8 +1,11 @@
 #define _USE_MATH_DEFINES
 
 #include "Collision.h"
-#include "GameObject.h"
-#include <cmath>
+#include "BoxRigidBody.h"
+
+struct Vec2 {
+  float x, y;
+};
 
 namespace Collision {
 /**
@@ -10,12 +13,8 @@ namespace Collision {
  *
  */
 
-struct Vec2 {
-  float x, y;
-};
-
-inline bool Collision::detectCollision(GameObject::GameObject *obj1,
-                                       GameObject::GameObject *obj2) {
+bool Collision::detectCollision(BoxRigidBody::BoxRigidBody *obj1,
+                                BoxRigidBody::BoxRigidBody *obj2) {
   // Convert degrees to radians
   float rangle1 = obj1->getA() * M_PI / 180.0f;
   float rangle2 = obj2->getA() * M_PI / 180.0f;
@@ -43,8 +42,8 @@ inline bool Collision::detectCollision(GameObject::GameObject *obj1,
   return true;
 }
 
-void Collision::handleCollision(GameObject::GameObject *obj1,
-                                GameObject::GameObject *obj2) {
+void Collision::handleCollision(BoxRigidBody::BoxRigidBody *obj1,
+                                BoxRigidBody::BoxRigidBody *obj2) {
   // assuming that obj1 is the object that is moving into obj2
   while (Collision::detectCollision(obj1, obj2)) {
     if (obj1->getX() <= obj2->getX() + obj2->getW()) {
