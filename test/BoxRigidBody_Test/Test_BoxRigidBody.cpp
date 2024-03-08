@@ -1,6 +1,6 @@
 #include "Animation.h"
-#include "GameObject.h"
 #include "BoxRigidBody.h"
+#include "GameObject.h"
 #include "MemoryManagement.h"
 #include "Util.h"
 #include "gtest/gtest.h"
@@ -27,7 +27,7 @@ TEST_F(BoxRigidBodyTest, BodyNullOnInitialization) {
 }
 
 TEST_F(BoxRigidBodyTest, CheckBodySetValues) {
-  BoxRigidBody::BoxRigidBody *box = new(
+  BoxRigidBody::BoxRigidBody *box = new (
       MemoryManagement::MemoryManagement::allocate<BoxRigidBody::BoxRigidBody>(
           sizeof(BoxRigidBody::BoxRigidBody)))
       BoxRigidBody::BoxRigidBody(100, 150, 200, 250, 30);

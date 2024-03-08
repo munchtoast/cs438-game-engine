@@ -1,6 +1,6 @@
 /**
  * @file BoxRigidBody.h
- * @brief Declaration of the BoxRigidBody class which attaches a 
+ * @brief Declaration of the BoxRigidBody class which attaches a
  * rigid body for collision detection to objects.
  *
  * @version
@@ -16,7 +16,7 @@
 namespace BoxRigidBody {
 class BoxRigidBody {
 public:
-	BoxRigidBody(float x, float y, float width, float height, float angle);
+  BoxRigidBody(float x, float y, float width, float height, float angle);
   ~BoxRigidBody();
 
   void setX(float x);
@@ -35,12 +35,11 @@ public:
   float getVX();
   float getVY();
 
-  BoxBody::Box* getBoxProperties();
-  void setBoxProperties(BoxBody::Box* ptr);
+  BoxBody::Box *getBoxProperties();
+  void setBoxProperties(BoxBody::Box *ptr);
 
 private:
-	BoxBody::Box* boxProperties;
-
+  BoxBody::Box *boxProperties;
 
   void cleanup();
 };

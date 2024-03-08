@@ -33,6 +33,7 @@ __pycache__/
 # User-specific files
 .vscode/
 .idea/
+.vs/
 
 # Ignore cmake install files
 install_manifest.txt

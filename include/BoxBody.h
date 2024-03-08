@@ -4,7 +4,7 @@
  * rigidbody physics and velocity.
  *
  * The BoxBody namespace provides key structures for handling collisions
- * within the game engine. 
+ * within the game engine.
  *
  *
  * @version
@@ -29,8 +29,8 @@ struct SizeDefault {
 };
 
 struct VelocityDefault {
-	float vx = 0;
-	float vy = 0;
+  float vx = 0;
+  float vy = 0;
 };
 
 typedef PositionDefault Position;

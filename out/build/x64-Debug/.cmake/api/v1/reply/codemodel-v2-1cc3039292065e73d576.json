@@ -1,0 +1,284 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3,
+						4
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.25"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						2
+					]
+				},
+				{
+					"build" : "submodule/SDL",
+					"jsonFile" : "directory-submodule.SDL-Debug-6a449bcf21ddea025167.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "submodule/SDL",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						12
+					]
+				},
+				{
+					"build" : "submodule/googletest/googletest",
+					"jsonFile" : "directory-submodule.googletest.googletest-Debug-ce489e2b348ac998078e.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.13"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 2,
+					"source" : "submodule/googletest/googletest",
+					"targetIndexes" : 
+					[
+						3,
+						4
+					]
+				},
+				{
+					"build" : "submodule/mimalloc",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-submodule.mimalloc-Debug-cee2d89a8c0db1f00578.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.13"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 3,
+					"source" : "submodule/mimalloc",
+					"targetIndexes" : 
+					[
+						5,
+						6,
+						7,
+						8,
+						9,
+						10
+					]
+				},
+				{
+					"build" : "submodule/spdlog",
+					"jsonFile" : "directory-submodule.spdlog-Debug-f228ec63e1e9694d8206.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.11"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 4,
+					"source" : "submodule/spdlog",
+					"targetIndexes" : 
+					[
+						11
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3,
+						4
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "game-engine",
+					"targetIndexes" : 
+					[
+						2
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "SDL3",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						12
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						2
+					],
+					"name" : "gtest",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						3,
+						4
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						3
+					],
+					"name" : "libmimalloc",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						5,
+						6,
+						7,
+						8,
+						9,
+						10
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						4
+					],
+					"name" : "spdlog",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						11
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 1,
+					"id" : "SDL3-shared::@e052440e0be31c534570",
+					"jsonFile" : "target-SDL3-shared-Debug-8f98e90e5771a7420778.json",
+					"name" : "SDL3-shared",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "SDL3_test::@e052440e0be31c534570",
+					"jsonFile" : "target-SDL3_test-Debug-0b68f3ff507d2d8d21ce.json",
+					"name" : "SDL3_test",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "game-engine::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-game-engine-Debug-2a382b4ba3d122d39522.json",
+					"name" : "game-engine",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "gtest::@a3fee1511d111a77e803",
+					"jsonFile" : "target-gtest-Debug-b96042a54696a5506f95.json",
+					"name" : "gtest",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "gtest_main::@a3fee1511d111a77e803",
+					"jsonFile" : "target-gtest_main-Debug-60b15ea5439cf66c15b6.json",
+					"name" : "gtest_main",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "mimalloc::@6a52a9244c24ffd1597d",
+					"jsonFile" : "target-mimalloc-Debug-1ea633264cd82f300f2f.json",
+					"name" : "mimalloc",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "mimalloc-obj::@6a52a9244c24ffd1597d",
+					"jsonFile" : "target-mimalloc-obj-Debug-d03f15219b0e294723d4.json",
+					"name" : "mimalloc-obj",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "mimalloc-static::@6a52a9244c24ffd1597d",
+					"jsonFile" : "target-mimalloc-static-Debug-7a316f15728f033703df.json",
+					"name" : "mimalloc-static",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "mimalloc-test-api::@6a52a9244c24ffd1597d",
+					"jsonFile" : "target-mimalloc-test-api-Debug-c0f0d3290ba184706c90.json",
+					"name" : "mimalloc-test-api",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "mimalloc-test-api-fill::@6a52a9244c24ffd1597d",
+					"jsonFile" : "target-mimalloc-test-api-fill-Debug-89dbffdd22681c841fea.json",
+					"name" : "mimalloc-test-api-fill",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "mimalloc-test-stress::@6a52a9244c24ffd1597d",
+					"jsonFile" : "target-mimalloc-test-stress-Debug-6af08a11ce454169a715.json",
+					"name" : "mimalloc-test-stress",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "spdlog::@3a6c8a0d6a42df54bfbc",
+					"jsonFile" : "target-spdlog-Debug-6b8fd78c016bb79ebba2.json",
+					"name" : "spdlog",
+					"projectIndex" : 4
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "uninstall::@e052440e0be31c534570",
+					"jsonFile" : "target-uninstall-Debug-4d22fda7a150a2271a60.json",
+					"name" : "uninstall",
+					"projectIndex" : 1
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "D:/CS438/game-engine/out/build/x64-Debug",
+		"source" : "D:/CS438/game-engine"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}
