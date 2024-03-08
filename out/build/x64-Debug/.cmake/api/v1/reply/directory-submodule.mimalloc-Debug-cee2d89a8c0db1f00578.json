@@ -1,244 +1,244 @@
 {
-	"backtraceGraph" : 
-	{
-		"commands" : 
-		[
-			"install"
-		],
-		"files" : 
-		[
-			"submodule/mimalloc/CMakeLists.txt"
-		],
-		"nodes" : 
-		[
-			{
-				"file" : 0
-			},
-			{
-				"command" : 0,
-				"file" : 0,
-				"line" : 415,
-				"parent" : 0
-			},
-			{
-				"command" : 0,
-				"file" : 0,
-				"line" : 418,
-				"parent" : 0
-			},
-			{
-				"command" : 0,
-				"file" : 0,
-				"line" : 419,
-				"parent" : 0
-			},
-			{
-				"command" : 0,
-				"file" : 0,
-				"line" : 442,
-				"parent" : 0
-			},
-			{
-				"command" : 0,
-				"file" : 0,
-				"line" : 443,
-				"parent" : 0
-			},
-			{
-				"command" : 0,
-				"file" : 0,
-				"line" : 447,
-				"parent" : 0
-			},
-			{
-				"command" : 0,
-				"file" : 0,
-				"line" : 448,
-				"parent" : 0
-			},
-			{
-				"command" : 0,
-				"file" : 0,
-				"line" : 449,
-				"parent" : 0
-			},
-			{
-				"command" : 0,
-				"file" : 0,
-				"line" : 450,
-				"parent" : 0
-			},
-			{
-				"command" : 0,
-				"file" : 0,
-				"line" : 451,
-				"parent" : 0
-			},
-			{
-				"command" : 0,
-				"file" : 0,
-				"line" : 489,
-				"parent" : 0
-			}
-		]
-	},
-	"installers" : 
-	[
-		{
-			"backtrace" : 1,
-			"component" : "Unspecified",
-			"destination" : "lib",
-			"paths" : 
-			[
-				"out/build/x64-Debug/submodule/mimalloc/mimalloc-redirect.dll"
-			],
-			"type" : "file"
-		},
-		{
-			"backtrace" : 2,
-			"component" : "Unspecified",
-			"destination" : "lib",
-			"paths" : 
-			[
-				"submodule/mimalloc/mimalloc-debug.lib"
-			],
-			"targetId" : "mimalloc::@6a52a9244c24ffd1597d",
-			"targetIndex" : 5,
-			"targetIsImportLibrary" : true,
-			"type" : "target"
-		},
-		{
-			"backtrace" : 2,
-			"component" : "Unspecified",
-			"destination" : "lib",
-			"paths" : 
-			[
-				"submodule/mimalloc/mimalloc-debug.dll"
-			],
-			"targetId" : "mimalloc::@6a52a9244c24ffd1597d",
-			"targetIndex" : 5,
-			"type" : "target"
-		},
-		{
-			"backtrace" : 3,
-			"component" : "Unspecified",
-			"destination" : "lib/cmake/mimalloc-2.1",
-			"exportName" : "mimalloc",
-			"exportTargets" : 
-			[
-				{
-					"id" : "mimalloc::@6a52a9244c24ffd1597d",
-					"index" : 5
-				},
-				{
-					"id" : "mimalloc-static::@6a52a9244c24ffd1597d",
-					"index" : 7
-				}
-			],
-			"paths" : 
-			[
-				"submodule/mimalloc/CMakeFiles/Export/386e97c4662a5910df52cfc051dd5510/mimalloc.cmake"
-			],
-			"type" : "export"
-		},
-		{
-			"backtrace" : 4,
-			"component" : "Unspecified",
-			"destination" : "lib/mimalloc-2.1",
-			"paths" : 
-			[
-				"submodule/mimalloc/mimalloc-static-debug.lib"
-			],
-			"targetId" : "mimalloc-static::@6a52a9244c24ffd1597d",
-			"targetIndex" : 7,
-			"type" : "target"
-		},
-		{
-			"backtrace" : 5,
-			"component" : "Unspecified",
-			"destination" : "lib/cmake/mimalloc-2.1",
-			"exportName" : "mimalloc",
-			"exportTargets" : 
-			[
-				{
-					"id" : "mimalloc::@6a52a9244c24ffd1597d",
-					"index" : 5
-				},
-				{
-					"id" : "mimalloc-static::@6a52a9244c24ffd1597d",
-					"index" : 7
-				}
-			],
-			"paths" : 
-			[
-				"submodule/mimalloc/CMakeFiles/Export/386e97c4662a5910df52cfc051dd5510/mimalloc.cmake"
-			],
-			"type" : "export"
-		},
-		{
-			"backtrace" : 6,
-			"component" : "Unspecified",
-			"destination" : "include/mimalloc-2.1",
-			"paths" : 
-			[
-				"submodule/mimalloc/include/mimalloc.h"
-			],
-			"type" : "file"
-		},
-		{
-			"backtrace" : 7,
-			"component" : "Unspecified",
-			"destination" : "include/mimalloc-2.1",
-			"paths" : 
-			[
-				"submodule/mimalloc/include/mimalloc-override.h"
-			],
-			"type" : "file"
-		},
-		{
-			"backtrace" : 8,
-			"component" : "Unspecified",
-			"destination" : "include/mimalloc-2.1",
-			"paths" : 
-			[
-				"submodule/mimalloc/include/mimalloc-new-delete.h"
-			],
-			"type" : "file"
-		},
-		{
-			"backtrace" : 9,
-			"component" : "Unspecified",
-			"destination" : "lib/cmake/mimalloc-2.1",
-			"paths" : 
-			[
-				"submodule/mimalloc/cmake/mimalloc-config.cmake"
-			],
-			"type" : "file"
-		},
-		{
-			"backtrace" : 10,
-			"component" : "Unspecified",
-			"destination" : "lib/cmake/mimalloc-2.1",
-			"paths" : 
-			[
-				"submodule/mimalloc/cmake/mimalloc-config-version.cmake"
-			],
-			"type" : "file"
-		},
-		{
-			"backtrace" : 11,
-			"component" : "Unspecified",
-			"destination" : "lib/pkgconfig",
-			"paths" : 
-			[
-				"out/build/x64-Debug/submodule/mimalloc/mimalloc.pc"
-			],
-			"type" : "file"
-		}
-	],
-	"paths" : 
-	{
-		"build" : "submodule/mimalloc",
-		"source" : "submodule/mimalloc"
-	}
+  "backtraceGraph":
+      {
+        "commands":
+            [
+              "install"
+            ],
+        "files":
+            [
+              "submodule/mimalloc/CMakeLists.txt"
+            ],
+        "nodes":
+            [
+              {
+                "file": 0
+              },
+              {
+                "command": 0,
+                "file": 0,
+                "line": 415,
+                "parent": 0
+              },
+              {
+                "command": 0,
+                "file": 0,
+                "line": 418,
+                "parent": 0
+              },
+              {
+                "command": 0,
+                "file": 0,
+                "line": 419,
+                "parent": 0
+              },
+              {
+                "command": 0,
+                "file": 0,
+                "line": 442,
+                "parent": 0
+              },
+              {
+                "command": 0,
+                "file": 0,
+                "line": 443,
+                "parent": 0
+              },
+              {
+                "command": 0,
+                "file": 0,
+                "line": 447,
+                "parent": 0
+              },
+              {
+                "command": 0,
+                "file": 0,
+                "line": 448,
+                "parent": 0
+              },
+              {
+                "command": 0,
+                "file": 0,
+                "line": 449,
+                "parent": 0
+              },
+              {
+                "command": 0,
+                "file": 0,
+                "line": 450,
+                "parent": 0
+              },
+              {
+                "command": 0,
+                "file": 0,
+                "line": 451,
+                "parent": 0
+              },
+              {
+                "command": 0,
+                "file": 0,
+                "line": 489,
+                "parent": 0
+              }
+            ]
+      },
+  "installers":
+      [
+        {
+          "backtrace": 1,
+          "component": "Unspecified",
+          "destination": "lib",
+          "paths":
+              [
+                "out/build/x64-Debug/submodule/mimalloc/mimalloc-redirect.dll"
+              ],
+          "type": "file"
+        },
+        {
+          "backtrace": 2,
+          "component": "Unspecified",
+          "destination": "lib",
+          "paths":
+              [
+                "submodule/mimalloc/mimalloc-debug.lib"
+              ],
+          "targetId": "mimalloc::@6a52a9244c24ffd1597d",
+          "targetIndex": 5,
+          "targetIsImportLibrary": true,
+          "type": "target"
+        },
+        {
+          "backtrace": 2,
+          "component": "Unspecified",
+          "destination": "lib",
+          "paths":
+              [
+                "submodule/mimalloc/mimalloc-debug.dll"
+              ],
+          "targetId": "mimalloc::@6a52a9244c24ffd1597d",
+          "targetIndex": 5,
+          "type": "target"
+        },
+        {
+          "backtrace": 3,
+          "component": "Unspecified",
+          "destination": "lib/cmake/mimalloc-2.1",
+          "exportName": "mimalloc",
+          "exportTargets":
+              [
+                {
+                  "id": "mimalloc::@6a52a9244c24ffd1597d",
+                  "index": 5
+                },
+                {
+                  "id": "mimalloc-static::@6a52a9244c24ffd1597d",
+                  "index": 7
+                }
+              ],
+          "paths":
+              [
+                "submodule/mimalloc/CMakeFiles/Export/386e97c4662a5910df52cfc051dd5510/mimalloc.cmake"
+              ],
+          "type": "export"
+        },
+        {
+          "backtrace": 4,
+          "component": "Unspecified",
+          "destination": "lib/mimalloc-2.1",
+          "paths":
+              [
+                "submodule/mimalloc/mimalloc-static-debug.lib"
+              ],
+          "targetId": "mimalloc-static::@6a52a9244c24ffd1597d",
+          "targetIndex": 7,
+          "type": "target"
+        },
+        {
+          "backtrace": 5,
+          "component": "Unspecified",
+          "destination": "lib/cmake/mimalloc-2.1",
+          "exportName": "mimalloc",
+          "exportTargets":
+              [
+                {
+                  "id": "mimalloc::@6a52a9244c24ffd1597d",
+                  "index": 5
+                },
+                {
+                  "id": "mimalloc-static::@6a52a9244c24ffd1597d",
+                  "index": 7
+                }
+              ],
+          "paths":
+              [
+                "submodule/mimalloc/CMakeFiles/Export/386e97c4662a5910df52cfc051dd5510/mimalloc.cmake"
+              ],
+          "type": "export"
+        },
+        {
+          "backtrace": 6,
+          "component": "Unspecified",
+          "destination": "include/mimalloc-2.1",
+          "paths":
+              [
+                "submodule/mimalloc/include/mimalloc.h"
+              ],
+          "type": "file"
+        },
+        {
+          "backtrace": 7,
+          "component": "Unspecified",
+          "destination": "include/mimalloc-2.1",
+          "paths":
+              [
+                "submodule/mimalloc/include/mimalloc-override.h"
+              ],
+          "type": "file"
+        },
+        {
+          "backtrace": 8,
+          "component": "Unspecified",
+          "destination": "include/mimalloc-2.1",
+          "paths":
+              [
+                "submodule/mimalloc/include/mimalloc-new-delete.h"
+              ],
+          "type": "file"
+        },
+        {
+          "backtrace": 9,
+          "component": "Unspecified",
+          "destination": "lib/cmake/mimalloc-2.1",
+          "paths":
+              [
+                "submodule/mimalloc/cmake/mimalloc-config.cmake"
+              ],
+          "type": "file"
+        },
+        {
+          "backtrace": 10,
+          "component": "Unspecified",
+          "destination": "lib/cmake/mimalloc-2.1",
+          "paths":
+              [
+                "submodule/mimalloc/cmake/mimalloc-config-version.cmake"
+              ],
+          "type": "file"
+        },
+        {
+          "backtrace": 11,
+          "component": "Unspecified",
+          "destination": "lib/pkgconfig",
+          "paths":
+              [
+                "out/build/x64-Debug/submodule/mimalloc/mimalloc.pc"
+              ],
+          "type": "file"
+        }
+      ],
+  "paths":
+      {
+        "build": "submodule/mimalloc",
+        "source": "submodule/mimalloc"
+      }
 }

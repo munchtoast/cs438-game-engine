@@ -1,14 +1,14 @@
 {
-	"backtraceGraph" : 
-	{
-		"commands" : [],
-		"files" : [],
-		"nodes" : []
-	},
-	"installers" : [],
-	"paths" : 
-	{
-		"build" : "submodule/googletest/googletest",
-		"source" : "submodule/googletest/googletest"
-	}
+  "backtraceGraph":
+      {
+        "commands": [],
+        "files": [],
+        "nodes": []
+      },
+  "installers": [],
+  "paths":
+      {
+        "build": "submodule/googletest/googletest",
+        "source": "submodule/googletest/googletest"
+      }
 }

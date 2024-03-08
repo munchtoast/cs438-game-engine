@@ -1,555 +1,555 @@
 {
-	"inputs" : 
-	[
-		{
-			"path" : "CMakeLists.txt"
-		},
-		{
-			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/3.27.2-msvc1/CMakeSystem.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakeSystemSpecificInitialize.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Platform/Windows-Initialize.cmake"
-		},
-		{
-			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/3.27.2-msvc1/CMakeCCompiler.cmake"
-		},
-		{
-			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/3.27.2-msvc1/CMakeCXXCompiler.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakeSystemSpecificInformation.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakeGenericSystem.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakeInitializeConfigs.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Platform/Windows.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Platform/WindowsPaths.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakeCInformation.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakeLanguageInformation.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Compiler/MSVC-C.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Compiler/MSVC.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Platform/Windows-MSVC-C.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Platform/Windows-MSVC.cmake"
-		},
-		{
-			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/3.27.2-msvc1/CMakeRCCompiler.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakeRCInformation.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakeCommonLanguageInclude.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakeCXXInformation.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakeLanguageInformation.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Compiler/MSVC-CXX.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Compiler/MSVC.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Platform/Windows-MSVC-CXX.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Platform/Windows-MSVC.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakeCommonLanguageInclude.cmake"
-		},
-		{
-			"path" : "submodule/SDL/CMakeLists.txt"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckLibraryExists.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckIncludeFile.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckLanguage.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckSymbolExists.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckCSourceCompiles.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Internal/CheckSourceCompiles.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckCSourceRuns.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Internal/CheckSourceRuns.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckCCompilerFlag.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Internal/CheckCompilerFlag.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Internal/CheckFlagCommonConfig.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Internal/CheckSourceCompiles.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckCSourceCompiles.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckCXXCompilerFlag.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Internal/CheckCompilerFlag.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckCXXSourceCompiles.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Internal/CheckSourceCompiles.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckStructHasMember.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckSourceCompiles.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Internal/CheckSourceCompiles.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckCSourceCompiles.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckCXXSourceCompiles.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakeDependentOption.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakeParseArguments.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakePushCheckState.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/GNUInstallDirs.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/FindPkgConfig.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/FindPackageHandleStandardArgs.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/FindPackageMessage.cmake"
-		},
-		{
-			"path" : "submodule/SDL/cmake/macros.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckLinkerFlag.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Internal/CheckLinkerFlag.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Internal/CheckFlagCommonConfig.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Internal/CheckSourceCompiles.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake"
-		},
-		{
-			"path" : "submodule/SDL/cmake/sdlchecks.cmake"
-		},
-		{
-			"path" : "submodule/SDL/cmake/sdlcompilers.cmake"
-		},
-		{
-			"path" : "submodule/SDL/cmake/sdlmanpages.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakeParseArguments.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/GNUInstallDirs.cmake"
-		},
-		{
-			"path" : "submodule/SDL/cmake/sdlplatform.cmake"
-		},
-		{
-			"path" : "submodule/SDL/cmake/sdltargets.cmake"
-		},
-		{
-			"path" : "submodule/SDL/cmake/CheckCPUArchitecture.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckCSourceCompiles.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakePushCheckState.cmake"
-		},
-		{
-			"path" : "submodule/SDL/cmake/GetGitRevisionDescription.cmake"
-		},
-		{
-			"path" : "submodule/SDL/cmake/3rdparty.cmake"
-		},
-		{
-			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/3.27.2-msvc1/CMakeASM_MASMCompiler.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakeASM_MASMInformation.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakeASMInformation.cmake"
-		},
-		{
-			"path" : "submodule/SDL/include/build_config/SDL_build_config.h.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/FindGit.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/FindPackageHandleStandardArgs.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/FindPackageMessage.cmake"
-		},
-		{
-			"path" : ".git/modules/submodule/SDL/HEAD"
-		},
-		{
-			"path" : "submodule/SDL/cmake/GetGitRevisionDescription.cmake.in"
-		},
-		{
-			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/submodule/SDL/CMakeFiles/git-data/grabRef.cmake"
-		},
-		{
-			"path" : ".git/modules/submodule/SDL/HEAD"
-		},
-		{
-			"path" : "submodule/SDL/include/build_config/SDL_revision.h.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakePackageConfigHelpers.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/WriteBasicConfigVersionFile.cmake"
-		},
-		{
-			"path" : "submodule/SDL/cmake/SDL3Config.cmake.in"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in"
-		},
-		{
-			"path" : "submodule/SDL/cmake/cmake_uninstall.cmake.in"
-		},
-		{
-			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/submodule/SDL/SDL_build_config.h.intermediate"
-		},
-		{
-			"path" : "submodule/googletest/googletest/CMakeLists.txt"
-		},
-		{
-			"path" : "submodule/googletest/googletest/cmake/internal_utils.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/FindThreads.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckLibraryExists.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckIncludeFile.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckCSourceCompiles.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/FindPackageHandleStandardArgs.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/FindPackageMessage.cmake"
-		},
-		{
-			"path" : "submodule/mimalloc/CMakeLists.txt"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckIncludeFiles.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/GNUInstallDirs.cmake"
-		},
-		{
-			"path" : "submodule/mimalloc/cmake/mimalloc-config-version.cmake"
-		},
-		{
-			"path" : "submodule/mimalloc/cmake/JoinPaths.cmake"
-		},
-		{
-			"path" : "submodule/mimalloc/mimalloc.pc.in"
-		},
-		{
-			"path" : "submodule/spdlog/CMakeLists.txt"
-		},
-		{
-			"path" : "submodule/spdlog/cmake/utils.cmake"
-		},
-		{
-			"path" : "submodule/spdlog/cmake/ide.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/GNUInstallDirs.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/FindThreads.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckLibraryExists.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckIncludeFile.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckCSourceCompiles.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/FindPackageHandleStandardArgs.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/FindPackageMessage.cmake"
-		}
-	],
-	"kind" : "cmakeFiles",
-	"paths" : 
-	{
-		"build" : "D:/CS438/game-engine/out/build/x64-Debug",
-		"source" : "D:/CS438/game-engine"
-	},
-	"version" : 
-	{
-		"major" : 1,
-		"minor" : 0
-	}
+  "inputs":
+      [
+        {
+          "path": "CMakeLists.txt"
+        },
+        {
+          "isGenerated": true,
+          "path": "out/build/x64-Debug/CMakeFiles/3.27.2-msvc1/CMakeSystem.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakeSystemSpecificInitialize.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Platform/Windows-Initialize.cmake"
+        },
+        {
+          "isGenerated": true,
+          "path": "out/build/x64-Debug/CMakeFiles/3.27.2-msvc1/CMakeCCompiler.cmake"
+        },
+        {
+          "isGenerated": true,
+          "path": "out/build/x64-Debug/CMakeFiles/3.27.2-msvc1/CMakeCXXCompiler.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakeSystemSpecificInformation.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakeGenericSystem.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakeInitializeConfigs.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Platform/Windows.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Platform/WindowsPaths.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakeCInformation.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakeLanguageInformation.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Compiler/MSVC-C.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Compiler/MSVC.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Platform/Windows-MSVC-C.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Platform/Windows-MSVC.cmake"
+        },
+        {
+          "isGenerated": true,
+          "path": "out/build/x64-Debug/CMakeFiles/3.27.2-msvc1/CMakeRCCompiler.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakeRCInformation.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakeCommonLanguageInclude.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakeCXXInformation.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakeLanguageInformation.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Compiler/MSVC-CXX.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Compiler/MSVC.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Platform/Windows-MSVC-CXX.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Platform/Windows-MSVC.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakeCommonLanguageInclude.cmake"
+        },
+        {
+          "path": "submodule/SDL/CMakeLists.txt"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckLibraryExists.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckIncludeFile.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckLanguage.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckSymbolExists.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckCSourceCompiles.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Internal/CheckSourceCompiles.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckCSourceRuns.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Internal/CheckSourceRuns.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckCCompilerFlag.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Internal/CheckCompilerFlag.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Internal/CheckFlagCommonConfig.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Internal/CheckSourceCompiles.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckCSourceCompiles.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckCXXCompilerFlag.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Internal/CheckCompilerFlag.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckCXXSourceCompiles.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Internal/CheckSourceCompiles.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckStructHasMember.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckSourceCompiles.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Internal/CheckSourceCompiles.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckCSourceCompiles.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckCXXSourceCompiles.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakeDependentOption.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakeParseArguments.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakePushCheckState.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/GNUInstallDirs.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/FindPkgConfig.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/FindPackageHandleStandardArgs.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/FindPackageMessage.cmake"
+        },
+        {
+          "path": "submodule/SDL/cmake/macros.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckLinkerFlag.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Internal/CheckLinkerFlag.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Internal/CheckFlagCommonConfig.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Internal/CheckSourceCompiles.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake"
+        },
+        {
+          "path": "submodule/SDL/cmake/sdlchecks.cmake"
+        },
+        {
+          "path": "submodule/SDL/cmake/sdlcompilers.cmake"
+        },
+        {
+          "path": "submodule/SDL/cmake/sdlmanpages.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakeParseArguments.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/GNUInstallDirs.cmake"
+        },
+        {
+          "path": "submodule/SDL/cmake/sdlplatform.cmake"
+        },
+        {
+          "path": "submodule/SDL/cmake/sdltargets.cmake"
+        },
+        {
+          "path": "submodule/SDL/cmake/CheckCPUArchitecture.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckCSourceCompiles.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakePushCheckState.cmake"
+        },
+        {
+          "path": "submodule/SDL/cmake/GetGitRevisionDescription.cmake"
+        },
+        {
+          "path": "submodule/SDL/cmake/3rdparty.cmake"
+        },
+        {
+          "isGenerated": true,
+          "path": "out/build/x64-Debug/CMakeFiles/3.27.2-msvc1/CMakeASM_MASMCompiler.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakeASM_MASMInformation.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakeASMInformation.cmake"
+        },
+        {
+          "path": "submodule/SDL/include/build_config/SDL_build_config.h.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/FindGit.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/FindPackageHandleStandardArgs.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/FindPackageMessage.cmake"
+        },
+        {
+          "path": ".git/modules/submodule/SDL/HEAD"
+        },
+        {
+          "path": "submodule/SDL/cmake/GetGitRevisionDescription.cmake.in"
+        },
+        {
+          "isGenerated": true,
+          "path": "out/build/x64-Debug/submodule/SDL/CMakeFiles/git-data/grabRef.cmake"
+        },
+        {
+          "path": ".git/modules/submodule/SDL/HEAD"
+        },
+        {
+          "path": "submodule/SDL/include/build_config/SDL_revision.h.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakePackageConfigHelpers.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/WriteBasicConfigVersionFile.cmake"
+        },
+        {
+          "path": "submodule/SDL/cmake/SDL3Config.cmake.in"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in"
+        },
+        {
+          "path": "submodule/SDL/cmake/cmake_uninstall.cmake.in"
+        },
+        {
+          "isGenerated": true,
+          "path": "out/build/x64-Debug/submodule/SDL/SDL_build_config.h.intermediate"
+        },
+        {
+          "path": "submodule/googletest/googletest/CMakeLists.txt"
+        },
+        {
+          "path": "submodule/googletest/googletest/cmake/internal_utils.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/FindThreads.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckLibraryExists.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckIncludeFile.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckCSourceCompiles.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/FindPackageHandleStandardArgs.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/FindPackageMessage.cmake"
+        },
+        {
+          "path": "submodule/mimalloc/CMakeLists.txt"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckIncludeFiles.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/GNUInstallDirs.cmake"
+        },
+        {
+          "path": "submodule/mimalloc/cmake/mimalloc-config-version.cmake"
+        },
+        {
+          "path": "submodule/mimalloc/cmake/JoinPaths.cmake"
+        },
+        {
+          "path": "submodule/mimalloc/mimalloc.pc.in"
+        },
+        {
+          "path": "submodule/spdlog/CMakeLists.txt"
+        },
+        {
+          "path": "submodule/spdlog/cmake/utils.cmake"
+        },
+        {
+          "path": "submodule/spdlog/cmake/ide.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/GNUInstallDirs.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/FindThreads.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckLibraryExists.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckIncludeFile.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckCSourceCompiles.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/FindPackageHandleStandardArgs.cmake"
+        },
+        {
+          "isCMake": true,
+          "isExternal": true,
+          "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/FindPackageMessage.cmake"
+        }
+      ],
+  "kind": "cmakeFiles",
+  "paths":
+      {
+        "build": "D:/CS438/game-engine/out/build/x64-Debug",
+        "source": "D:/CS438/game-engine"
+      },
+  "version":
+      {
+        "major": 1,
+        "minor": 0
+      }
 }
