@@ -45,6 +45,10 @@ int main() {
       new (MemoryManagement::MemoryManagement::allocate<Tile::Tile>(
           sizeof(Tile::Tile))) Tile::Tile(50, 50, 50, 50);
 
+  Tile::Tile *light =
+      new (MemoryManagement::MemoryManagement::allocate<Tile::Tile>(
+          sizeof(Tile::Tile))) Tile::Tile(250, 250, 1, 1);
+
   tile->addSubGameObject(hitBox);
 
   gameObjectMap->add(screen);
@@ -52,10 +56,13 @@ int main() {
   gameObjectMap->add(tile);
 
   // Subscribe Move Right
-  Handler::EventCallBack *moveRight = new (
-      MemoryManagement::MemoryManagement::allocate<Handler::EventCallBack>(
+  Handler::EventCallBack *moveRight =
+      new (MemoryManagement::MemoryManagement::allocate<Handler::EventCallBack>(
           sizeof(Handler::EventCallBack)))
-      Handler::EventCallBack([&camera]() { camera->setX(camera->getX() + 5); });
+          Handler::EventCallBack([&camera, &light]() {
+            camera->setX(camera->getX() + 5);
+            light->setX(light->getX() + 5);
+          });
 
   Handler::Handler<GameObject::GameObject> *handlerRight =
       new (MemoryManagement::MemoryManagement::allocate<
@@ -68,10 +75,13 @@ int main() {
   handlerRight->setEventCallBack(moveRight);
 
   // Subscribe Move Left
-  Handler::EventCallBack *moveLeft = new (
-      MemoryManagement::MemoryManagement::allocate<Handler::EventCallBack>(
+  Handler::EventCallBack *moveLeft =
+      new (MemoryManagement::MemoryManagement::allocate<Handler::EventCallBack>(
           sizeof(Handler::EventCallBack)))
-      Handler::EventCallBack([&camera]() { camera->setX(camera->getX() - 5); });
+          Handler::EventCallBack([&camera, &light]() {
+            camera->setX(camera->getX() - 5);
+            light->setX(light->getX() - 5);
+          });
 
   Handler::Handler<GameObject::GameObject> *handlerLeft =
       new (MemoryManagement::MemoryManagement::allocate<
@@ -84,10 +94,13 @@ int main() {
   handlerLeft->setEventCallBack(moveLeft);
 
   // Subscribe Move Up
-  Handler::EventCallBack *moveUp = new (
-      MemoryManagement::MemoryManagement::allocate<Handler::EventCallBack>(
+  Handler::EventCallBack *moveUp =
+      new (MemoryManagement::MemoryManagement::allocate<Handler::EventCallBack>(
           sizeof(Handler::EventCallBack)))
-      Handler::EventCallBack([&camera]() { camera->setY(camera->getY() - 5); });
+          Handler::EventCallBack([&camera, &light]() {
+            camera->setY(camera->getY() - 5);
+            light->setY(light->getY() - 5);
+          });
 
   Handler::Handler<GameObject::GameObject> *handlerUp =
       new (MemoryManagement::MemoryManagement::allocate<
@@ -100,10 +113,13 @@ int main() {
   handlerUp->setEventCallBack(moveUp);
 
   // Subscribe Move Down
-  Handler::EventCallBack *moveDown = new (
-      MemoryManagement::MemoryManagement::allocate<Handler::EventCallBack>(
+  Handler::EventCallBack *moveDown =
+      new (MemoryManagement::MemoryManagement::allocate<Handler::EventCallBack>(
           sizeof(Handler::EventCallBack)))
-      Handler::EventCallBack([&camera]() { camera->setY(camera->getY() + 5); });
+          Handler::EventCallBack([&camera, &light]() {
+            camera->setY(camera->getY() + 5);
+            light->setY(light->getY() + 5);
+          });
 
   Handler::Handler<GameObject::GameObject> *handlerDown =
       new (MemoryManagement::MemoryManagement::allocate<
@@ -188,6 +204,30 @@ int main() {
 
   (tile->getAnimation())->addCels(cels);
 
+  cel = new (MemoryManagement::MemoryManagement::allocate<Animation::Cel>(
+      sizeof(Animation::Cel))) Animation::Cel();
+
+  cels = new (
+      MemoryManagement::MemoryManagement::allocate<Map::Map<Animation::Cel>>(
+          sizeof(Map::Map<Animation::Cel>))) Map::Map<Animation::Cel>();
+
+  ani = new (
+      MemoryManagement::MemoryManagement::allocate<Map::Map<RectStruct::Rect>>(
+          sizeof(Map::Map<RectStruct::Rect>))) Map::Map<RectStruct::Rect>();
+
+  block1 = new (MemoryManagement::MemoryManagement::allocate<RectStruct::Rect>(
+      sizeof(RectStruct::Rect))) RectStruct::Rect;
+
+  block1->color.r = 255;
+
+  ani->add(block1);
+
+  cel->setPixels(ani);
+
+  cels->add(cel);
+
+  (light->getAnimation())->addCels(cels);
+
   bool quit = false;
   SDL_Event e;
 
@@ -200,7 +240,7 @@ int main() {
       }
     }
 
-    gameWindow.render(gameObjectMap, camera);
+    gameWindow.render(gameObjectMap, camera, light);
   }
   SDL_Quit();
 
@@ -211,6 +251,9 @@ int main() {
   controller = static_cast<Controller::Controller *>(
       MemoryManagement::MemoryManagement::deallocate<Controller::Controller>(
           controller));
+
+  light = static_cast<Tile::Tile *>(
+      MemoryManagement::MemoryManagement::deallocate<Tile::Tile>(light));
 
   return 0;
 }
