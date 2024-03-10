@@ -20,9 +20,9 @@ add_subdirectory(${CMAKE_SOURCE_DIR}/submodule/spdlog)
 set(SOURCES 
   ${CMAKE_SOURCE_DIR}/src/Util.cpp
   ${CMAKE_SOURCE_DIR}/src/Main.cpp
-  ${CMAKE_SOURCE_DIR}/src/BoxRigidBody.cpp
   ${CMAKE_SOURCE_DIR}/src/GameWindow.cpp 
   ${CMAKE_SOURCE_DIR}/src/GameObject.cpp
+  ${CMAKE_SOURCE_DIR}/src/BoxRigidBody.cpp
   ${CMAKE_SOURCE_DIR}/src/Collision.cpp
   ${CMAKE_SOURCE_DIR}/src/Tile.cpp
   ${CMAKE_SOURCE_DIR}/src/UI.cpp

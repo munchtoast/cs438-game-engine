@@ -10,37 +10,24 @@
 #ifndef BOXRIGIDBODY_H
 #define BOXRIGIDBODY_H
 
-#include "BoxBody.h"
+#include "GameObject.h"
 #include "Map.h"
+#include "RectStruct.h"
 
 namespace BoxRigidBody {
-class BoxRigidBody {
+class BoxRigidBody : public GameObject::GameObject {
 public:
   BoxRigidBody(float x, float y, float width, float height, float angle);
   ~BoxRigidBody();
 
-  void setX(float x);
-  void setY(float y);
-  void setW(float width);
-  void setH(float height);
-  void setA(float angle);
   void setVX(float velx);
   void setVY(float vely);
+  void update();
 
-  float getX();
-  float getY();
-  float getW();
-  float getH();
-  float getA();
   float getVX();
   float getVY();
 
-  BoxBody::Box *getBoxProperties();
-  void setBoxProperties(BoxBody::Box *ptr);
-
 private:
-  BoxBody::Box *boxProperties;
-
   void cleanup();
 };
 } // namespace BoxRigidBody

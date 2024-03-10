@@ -21,10 +21,19 @@
 namespace Collision {
 class Collision {
 public:
+  struct Vec2 {
+    float x, y;
+  };
+
+  static float sweptCollision(BoxRigidBody::BoxRigidBody *obj1,
+                              BoxRigidBody::BoxRigidBody *obj2);
   static bool detectCollision(BoxRigidBody::BoxRigidBody *obj1,
                               BoxRigidBody::BoxRigidBody *obj2);
   static void handleCollision(BoxRigidBody::BoxRigidBody *obj1,
                               BoxRigidBody::BoxRigidBody *obj2);
+
+private:
+  void getCorners(BoxRigidBody::BoxRigidBody *obj, Vec2 corners[]);
 };
 } // namespace Collision
 #endif

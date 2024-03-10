@@ -41,8 +41,7 @@ GameObject::GameObject(float x, float y, float width, float height,
   GameObject::setY(y);
   GameObject::setW(width);
   GameObject::setH(height);
-  GameObject::angle = angle;
-  GameObject::setBodyProperties(nullptr);
+  GameObject::setA(angle);
 }
 
 GameObject::~GameObject() { GameObject::cleanup(); }
@@ -81,14 +80,6 @@ Map::Map<GameObject> *GameObject::getSubGameObjects() { return subGameObjects; }
 
 void GameObject::addSubGameObject(GameObject *subGameObject) {
   getSubGameObjects()->add(subGameObject);
-}
-
-void GameObject::setBodyProperties(BoxRigidBody::BoxRigidBody *rigidbody) {
-  GameObject::bodyProperties = rigidbody;
-}
-
-BoxRigidBody::BoxRigidBody *GameObject::getBodyProperties() {
-  return GameObject::bodyProperties;
 }
 
 Animation::Animation *GameObject::getAnimation() { return animation; }

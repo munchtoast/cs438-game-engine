@@ -1,4 +1,5 @@
 #include "Animation.h"
+#include "Collision.h"
 #include "Controller.h"
 #include "EventHandler.h"
 #include "GameObject.h"
@@ -193,6 +194,15 @@ int main() {
 
   while (!quit) {
     while (SDL_PollEvent(&e) != 0) {
+      for (size_t i = 0; i < gameObjectMap->getSize(); ++i) {
+        for (size_t j = i + 1; j < gameObjectMap->getSize(); ++j) {
+          // if (Collision::Collision::detectCollision(gameObjectMap[i],
+          // gameObjectMap[j])) {
+          //  Handle collision between game objects i and j
+          // handleCollision(gameObjects[i], gameObjects[j]);
+          //}
+        }
+      }
       controller->update(e);
 
       if (e.type == SDL_EVENT_QUIT) {

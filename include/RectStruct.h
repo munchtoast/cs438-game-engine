@@ -29,6 +29,7 @@ namespace RectStruct {
 struct PositionDefault {
   float x = 0;
   float y = 0;
+  float angle = 0;
 };
 
 struct SizeDefault {
@@ -43,14 +44,21 @@ struct ColorDefault {
   Uint8 a = 0;
 };
 
+struct VelocityDefault {
+  float vx = 0;
+  float vy = 0;
+};
+
 typedef PositionDefault Position;
 typedef SizeDefault Size;
 typedef ColorDefault Color;
+typedef VelocityDefault Velocity;
 
 typedef struct {
   Position position;
   Size size;
   Color color;
+  Velocity velocity;
 } Rect;
 
 } // namespace RectStruct
