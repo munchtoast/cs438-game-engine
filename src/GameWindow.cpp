@@ -5,6 +5,8 @@
 #include "MemoryManagement.h"
 #include <SDL.h>
 #include <chrono>
+#include <cmath>
+#include <limits>
 #include <spdlog/spdlog.h>
 #include <thread>
 
@@ -62,20 +64,124 @@ void GameWindow::draw(int x, int y, RectStruct::Color *c) {
 
 void GameWindow::drawRect(int x, int y, int width, int height,
                           RectStruct::Color *c) {
-  for (int i = x; i < x + width; i++) {
-    for (int j = y; j < y + height; j++) {
+  for (int i = x; i < x + width; i++)
+    for (int j = y; j < y + height; j++)
       draw(i, j, c);
-    }
+}
+
+void GameWindow::drawTriangle(int v1x, int v1y, int v2x, int v2y, int v3x,
+                              int v3y, RectStruct::Color *c) {
+  GameWindow::drawLine(v1x, v1y, v2x, v2y, c);
+  GameWindow::drawLine(v1x, v1y, v3x, v3y, c);
+  GameWindow::drawLine(v2x, v2y, v3x, v3y, c);
+
+  GameWindow::fillTriangle(v1x, v1y, v2x, v2y, v3x, v3y, c);
+}
+
+/**
+ * @brief Performs the scanline algorithm to fill in a triangle
+ *
+ * @note The order of vertices do not matter, as the algorithm will draw and
+ * fill up accordingly.
+ *
+ * @param v1x - Vertex1 x position
+ * @param v1y - Vertex1 y position
+ * @param v2x - Vertex2 x position
+ * @param v2y - Vertex2 y position
+ * @param v3x - Vertex3 x position
+ * @param v3y - Vertex3 y position
+ * @param c - Color to draw to screen
+ *
+ */
+void GameWindow::fillTriangle(int v1x, int v1y, int v2x, int v2y, int v3x,
+                              int v3y, RectStruct::Color *c) {
+  // Sort vertices by y-coordinate
+  if (v1y > v2y) {
+    std::swap(v1x, v2x);
+    std::swap(v1y, v2y);
+  }
+  if (v1y > v3y) {
+    std::swap(v1x, v3x);
+    std::swap(v1y, v3y);
+  }
+  if (v2y > v3y) {
+    std::swap(v2x, v3x);
+    std::swap(v2y, v3y);
+  }
+
+  // Calculate slopes
+  float invSlope1 = static_cast<float>(v2x - v1x) / (v2y - v1y);
+  float invSlope2 = static_cast<float>(v3x - v1x) / (v3y - v1y);
+
+  // Initialize edge values
+  float currentX1 = v1x;
+  float currentX2 = v1x;
+
+  // Fill the top part of the triangle
+  for (int y = v1y; y <= v2y; y++) {
+    drawLine(static_cast<int>(currentX1), y, static_cast<int>(currentX2), y, c);
+    currentX1 += invSlope1;
+    currentX2 += invSlope2;
+  }
+
+  // Adjust for the bottom flat side of the triangle
+  invSlope1 = static_cast<float>(v3x - v2x) / (v3y - v2y);
+  currentX1 = v2x;
+
+  // Fill the bottom part of the triangle
+  for (int y = v2y + 1; y <= v3y; y++) {
+    drawLine(static_cast<int>(currentX1), y, static_cast<int>(currentX2), y, c);
+    currentX1 += invSlope1;
+    currentX2 += invSlope2;
+  }
+}
+
+/**
+ * @brief Draws a line given two points
+ *
+ * @param x1 - x position of object 1
+ * @param y1 - y position of object 1
+ * @param x2 - x position of object 2
+ * @param y2 - y position of object 2
+ * @param c - Color to draw to screen
+ */
+void GameWindow::drawLine(int x1, int y1, int x2, int y2,
+                          RectStruct::Color *c) {
+  // Can't draw on top of itself
+  if (x1 == x2 && y1 == y2)
+    return;
+  if (x1 > x2) {
+    std::swap(x1, x2);
+    std::swap(y1, y2);
+  }
+
+  // Vertical line has no valid slope
+  if (x1 == x2) {
+    for (int y = y1; y == y2; y++)
+      draw(x1, y, c);
+
+    return;
+  }
+
+  float slope = static_cast<float>(y2 - y1) / (x2 - x1);
+
+  for (int x = x1; x <= x2; x++) {
+    int y = y1 + static_cast<int>(slope * (x - x1));
+    draw(x, y, c);
   }
 }
 
 void GameWindow::present() { SDL_RenderPresent(renderer); }
 
 void GameWindow::render(Map::Map<GameObject::GameObject> *gameObjects,
-                        GameObject::GameObject *camera) {
+                        GameObject::GameObject *camera,
+                        GameObject::GameObject *light) {
   Map::Map<Animation::Cel> *cels = nullptr;
-  Animation::Animation *animation;
+  Animation::Animation *animation = nullptr;
   GameObject::GameObject **mem = gameObjects->getMap();
+
+  if (Util::Util::checkIfNullPtr(mem))
+    return;
 
   GameWindow::clearScreen();
 
@@ -88,15 +194,18 @@ void GameWindow::render(Map::Map<GameObject::GameObject> *gameObjects,
   for (size_t i = 0; i < gameObjects->getSize(); i++) {
     if (isRenderable(mem[i], camera)) {
       animation = mem[i]->getAnimation();
+
+      if (Util::Util::checkIfNullPtr(mem[i]))
+        continue;
+
       cels = animation->getCelsToRender();
 
       if (!Util::Util::checkIfNullPtr(cels)) {
-        renderCel(cels, camera, mem[i]);
+        renderCel(cels, camera, mem[i], light);
         std::this_thread::sleep_for(std::chrono::milliseconds(16));
       }
     }
   }
-
   GameWindow::present();
 }
 
@@ -111,16 +220,31 @@ void GameWindow::render(Map::Map<GameObject::GameObject> *gameObjects,
  */
 void GameWindow::renderCel(Map::Map<Animation::Cel> *cels,
                            GameObject::GameObject *camera,
-                           GameObject::GameObject *gameObject) {
-  Animation::Cel **memCel;
-  RectStruct::Rect **memPixel;
-  RectStruct::Rect *pixel;
+                           GameObject::GameObject *gameObject,
+                           GameObject::GameObject *light) {
+  Animation::Cel **memCel = nullptr;
+  RectStruct::Rect **memPixel = nullptr;
+
+  memCel = cels->getMap();
+  if (Util::Util::checkIfNullPtr(memCel))
+    return;
 
   for (size_t i = 0; i < cels->getSize(); i++) {
-    memCel = cels->getMap();
+    if (Util::Util::checkIfNullPtr(memCel[i]))
+      continue;
+
     memPixel = memCel[i]->getPixels()->getMap();
 
+    if (Util::Util::checkIfNullPtr(memPixel))
+      continue;
+
     for (size_t j = 0; j < memCel[i]->getPixels()->getSize(); j++) {
+      if (Util::Util::checkIfNullPtr(memPixel[j]))
+        break;
+
+      GameWindow::castShadow(gameObject, memPixel[j], camera, light);
+
+      // Meant to draw on top of casted shadows
       GameWindow::drawRect(
           (gameObject->getX() - memPixel[j]->position.x) - camera->getX(),
           (gameObject->getY() - memPixel[j]->position.y) - camera->getY(),
@@ -129,6 +253,45 @@ void GameWindow::renderCel(Map::Map<Animation::Cel> *cels,
           static_cast<RectStruct::Color *>(&memPixel[j]->color));
     }
   }
+}
+
+/**
+ * @brief Casts a shadow given a pixel with respect to the GameObject and
+ * weights observed from the light source.
+ *
+ * @param gameObject - GameObject to cast shadows
+ * @param pixel - Relative pixel to cast shadows
+ * @param camera - GameObject to draw pixels with respect to the screen
+ * @param light - GameObject that represents the source to procure shadows from.
+ * The width and height represent intensity vectors
+ */
+void GameWindow::castShadow(GameObject::GameObject *gameObject,
+                            RectStruct::Rect *pixel,
+                            GameObject::GameObject *camera,
+                            GameObject::GameObject *light) {
+  RectStruct::Color *c =
+      new (MemoryManagement::MemoryManagement::allocate<RectStruct::Color>(
+          sizeof(RectStruct::Color))) RectStruct::Color;
+
+  std::vector<int> lightDir;
+  int relObjX = gameObject->getX() - pixel->position.x - camera->getX();
+  int relObjY = gameObject->getY() - pixel->position.y - camera->getY();
+  int relLightX = light->getX() - camera->getX();
+  int relLightY = light->getY() - camera->getY();
+
+  int dirX = relLightX - relObjX;
+  int dirY = relLightY - relObjY;
+
+  float shadowOffsetFactor = 0.1;
+
+  int shadowOffsetX = static_cast<int>(dirX * shadowOffsetFactor);
+  int shadowOffsetY = static_cast<int>(dirY * shadowOffsetFactor);
+
+  drawRect(relObjX - shadowOffsetX, relObjY - shadowOffsetY, gameObject->getW(),
+           gameObject->getH(), c);
+
+  c = static_cast<RectStruct::Color *>(
+      MemoryManagement::MemoryManagement::deallocate<RectStruct::Color>(c));
 }
 
 /**
@@ -147,7 +310,10 @@ bool GameWindow::isRenderable(GameObject::GameObject *gameObject,
 }
 
 void GameWindow::cleanup() {
-  SDL_DestroyWindow(window);
-  SDL_DestroyRenderer(renderer);
+  if (!Util::Util::checkIfNullPtr(window))
+    SDL_DestroyWindow(window);
+
+  if (!Util::Util::checkIfNullPtr(renderer))
+    SDL_DestroyRenderer(renderer);
 }
 } // namespace GameWindow

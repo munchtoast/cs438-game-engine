@@ -18,6 +18,8 @@
  * - 1.1: Add bit by bit rendering (dexter@nekocake.cafe) (2024-02-26)
  * - 1.2: Add animation support for rendering (dexter@nekocake.cafe)
  * (2024-02-26)
+ * - 1.3: Add shadows, drawTriangle, and drawLine (dexter@nekocake.cafe)
+ * (2024-03-10)
  */
 
 #ifndef GAME_WINDOW_H
@@ -46,9 +48,14 @@ public:
   void setRenderDrawColor(Uint8 r, Uint8 g, Uint8 b, Uint8 a);
   void draw(int x, int y, RectStruct::Color *c);
   void drawRect(int x, int y, int width, int height, RectStruct::Color *c);
+  void drawTriangle(int v1x, int v1y, int v2x, int v2y, int v3x, int v3y,
+                    RectStruct::Color *c);
+  void fillTriangle(int v1x, int v1y, int v2x, int v2y, int v3x, int v3y,
+                    RectStruct::Color *c);
+  void drawLine(int x1, int y1, int x2, int y2, RectStruct::Color *c);
   void present();
   void render(Map::Map<GameObject::GameObject> *gameObjects,
-              GameObject::GameObject *camera);
+              GameObject::GameObject *camera, GameObject::GameObject *light);
 
 private:
   SDL_Renderer *renderer;
@@ -56,7 +63,11 @@ private:
   bool isRenderable(GameObject::GameObject *gameObject,
                     GameObject::GameObject *camera);
   void renderCel(Map::Map<Animation::Cel> *cels, GameObject::GameObject *camera,
-                 GameObject::GameObject *gameObject);
+                 GameObject::GameObject *gameObject,
+                 GameObject::GameObject *light);
+  void castShadow(GameObject::GameObject *gameObject, RectStruct::Rect *pixel,
+                  GameObject::GameObject *camera,
+                  GameObject::GameObject *light);
   void cleanup();
 };
 } // namespace GameWindow

@@ -17,6 +17,7 @@
  * - 1.0: Initial implementation (dexter@nekocake.cafe) (2024-02-01)
  * - 1.1: Make Rect object contain a color to represent a pixel
  * (dexter@nekocake.cafe) (2024-02-26)
+ * - 1.2: Use default to prevent overflow (dexter@nekocake.cafe) (2024-02-28)
  */
 
 #ifndef RECTSTRUCT_H
@@ -25,22 +26,26 @@
 #include <SDL.h>
 
 namespace RectStruct {
-typedef struct {
-  float x;
-  float y;
-} Position;
+struct PositionDefault {
+  float x = 0;
+  float y = 0;
+};
 
-typedef struct {
-  float width;
-  float height;
-} Size;
+struct SizeDefault {
+  float width = 0;
+  float height = 0;
+};
 
-typedef struct {
-  Uint8 r;
-  Uint8 g;
-  Uint8 b;
-  Uint8 a;
-} Color;
+struct ColorDefault {
+  Uint8 r = 0;
+  Uint8 g = 0;
+  Uint8 b = 0;
+  Uint8 a = 0;
+};
+
+typedef PositionDefault Position;
+typedef SizeDefault Size;
+typedef ColorDefault Color;
 
 typedef struct {
   Position position;
